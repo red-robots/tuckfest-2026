@@ -1,0 +1,326 @@
+$color_link: #ffff00;
+$color_link_dark: #a0a000;
+$color_link_visited: purple;
+$color_link_hover: midnightblue;
+$color_text_main: #000;
+$primary: #407078;
+$secondary: #000;
+$text_color: #F3E3CC;
+$body_color: #000;
+$bgcolor: #fff;
+
+
+$axis: 'AxisExtrabold', sans-serif;
+$font_primary: 'BrandonReg', sans-serif;
+$font_secondary: 'Catamaran', sans-serif;
+$font_heading: 'BrandonMedItalic', sans-serif;
+$tuckfest_hand: 'TuckfestHand', sans-serif;
+$font_code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+$font_pre: "Courier 10 Pitch", Courier, monospace;
+
+$portrait:480px;
+$xswidth: 600px;
+$tabwidth: 820px;
+$midwidth: 960px;
+$deskwidth: 1200px;
+$xxl: 1380px;
+$nav_width: 350px;
+$wrapper: 1100px;
+
+@mixin xxs { @media (min-width: $portrait) { @content; } }
+@mixin xs { @media (min-width: $xswidth) { @content; } }
+@mixin tab { @media (min-width: $tabwidth) { @content; } }
+@mixin mid { @media (min-width: $midwidth) { @content; } }
+@mixin desk {  @media (min-width: $deskwidth) { @content; } }
+@mixin xxl {  @media (min-width: $xxl) { @content; } }
+@mixin min($width) {
+	@media screen and (min-width: $width) { @content; }
+}
+@mixin max($width) {
+	@media screen and (max-width: $width) { @content; }
+}
+
+// Rem output with px fallback
+@mixin font-size($sizeValue: 1) {
+	font-size: ($sizeValue * 16) * 1px;
+	font-size: $sizeValue * 1rem;
+}
+
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Clearfix
+@mixin clearfix() {
+	content: "";
+	display: table;
+	table-layout: fixed;
+	clear: both;
+	*zoom: 1;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+	clear: both;
+}
+@mixin flexbox(){
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+  }
+  @mixin flexbox-flex($first, $second, $third) {
+	-webkit-box-flex: $first $second $third;
+	-moz-box-flex: $first $second $third;
+	-webkit-flex: $first $second $third;
+	-ms-flex: $first $second $third;
+	flex: $first $second $third;
+  }
+  @mixin flexbox-wrap($value){
+	-webkit-flex-wrap: $value;
+	flex-wrap: $value;
+  }
+  @mixin flexbox-align-content($value){
+	-webkit-align-content: $value;
+	align-content: $value;
+  }
+  @mixin flexbox-align-items($value){
+	-webkit-align-items: $value;
+	align-items: $value;
+  }
+  @mixin flexbox-justify($value){
+	-webkit-justify-content: $value;
+	justify-content: $value;
+  }
+  @mixin flexbox-align-self($value){
+	-webkit-align-self: $value;
+	align-self: $value;
+  }
+  @mixin flexbox-direction($value){
+	-webkit-flex-direction: $value;
+	flex-direction: $value;
+  }
+  @mixin translatexy($value1,$value2){
+	-ms-transform: translateX($value1) translateY($value2);
+	-moz-transform: translateX($value1) translateY($value2);
+	-webkit-transform: translateX($value1) translateY($value2);
+	transform: translateX($value1) translateY($value2);
+  }
+
+@mixin flexgroup() {
+	@include flexbox();
+	@include flexbox-wrap(wrap);
+	@include flexbox-direction(row);
+}
+
+@mixin flexgroup-center() {
+	@include flexbox();
+	@include flexbox-wrap(wrap);
+	@include flexbox-direction(row);
+	@include flexbox-align-items(center);
+}
+
+@mixin animateThis($duration:1s) {
+	-webkit-animation-duration: $duration;
+	animation-duration: $duration;
+}
+
+@mixin animateEffect($effect:fadeIn) {
+	-webkit-animation-name: $effect;
+  animation-name: $effect;
+}
+
+@mixin fontblock() {
+	font-size: 16px;
+	line-height: 1.5;
+}
+
+@mixin fontHeadingBlock($color:#FFF) {
+	font-family: $font-secondary;
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 1.4;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	margin: 0 0 20px;
+	color: $color;
+}
+
+@mixin fontAwesome() {
+	font-family: "Font Awesome 5 Free";
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	display: inline-block;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 900;
+	text-rendering: auto;
+	line-height: 1;
+}
+
+@mixin customFonts() {
+	display: inline-block;
+  font-family: 'custom-icon';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale
+}
+
+@mixin backgroundImage($position:center) {
+	background-size: cover;
+	background-position: $position;
+	background-repeat: no-repeat;
+}
+
+@mixin broken_lines_dark() {
+	background-image: url("data:image/svg+xml,%3csvg width='100%30' height='100%30' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%30' height='100%30' fill='none' stroke='%23333' stroke-width='3' stroke-dasharray='5%2c10' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+}
+@mixin broken_lines_white() {
+	background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='white' stroke-width='4' stroke-dasharray='5%2c15' stroke-dashoffset='16' stroke-linecap='square'/%3e%3c/svg%3e");
+}
+@mixin broken_lines_white_v2() {
+	background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='white' stroke-width='2' stroke-dasharray='6%2c 20' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+}
+
+@mixin clip_large_left() {
+	clip-path: polygon(0 0, 85% 0, 100% 11%, 100% 100%, 0 100%);
+}
+
+@mixin clip_small_left() {
+	clip-path: polygon(0 0, 78% 0, 100% 10%, 100% 100%, 0 100%);
+}
+
+@mixin clip_xl_left() {
+	clip-path: polygon(0 0, 83% 0, 100% 11%, 100% 100%, 0 100%);
+}
+
+@mixin clip_small_right() {
+	clip-path: polygon(0 10%, 22% 0, 100% 0, 100% 100%, 0 100%);
+}
+@mixin clip_large_right() {
+	clip-path: polygon(0 10%, 22% 0, 100% 0, 100% 100%, 0 100%);
+}
+@mixin clip_xl_right() {
+	clip-path: polygon(0 11%, 22% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+// Shorthand mixin. Supports multiple parentheses-deliminated values for each variable.
+// Example: @include transition (all 2s ease-in-out);
+//          @include transition (opacity 1s ease-in 2s, width 2s ease-out);
+//          @include transition-property (transform, opacity);
+// @mixin prefixer($property, $value, $prefixes) {
+//   @each $prefix in $prefixes {
+//     @if $prefix == webkit {
+//       @if $prefix-for-webkit {
+//         -webkit-#{$property}: $value;
+//       }
+//     } @else if $prefix == moz {
+//       @if $prefix-for-mozilla {
+//         -moz-#{$property}: $value;
+//       }
+//     } @else if $prefix == ms {
+//       @if $prefix-for-microsoft {
+//         -ms-#{$property}: $value;
+//       }
+//     } @else if $prefix == o {
+//       @if $prefix-for-opera {
+//         -o-#{$property}: $value;
+//       }
+//     } @else if $prefix == spec {
+//       @if $prefix-for-spec {
+//         #{$property}: $value;
+//       }
+//     } @else  {
+//       @warn "Unrecognized prefix: #{$prefix}";
+//     }
+//   }
+// }
+
+// @mixin disable-prefix-for-all() {
+//   $prefix-for-webkit:    false !global;
+//   $prefix-for-mozilla:   false !global;
+//   $prefix-for-microsoft: false !global;
+//   $prefix-for-opera:     false !global;
+//   $prefix-for-spec:      false !global;
+// }
+// @mixin transition($properties...) {
+//   // Fix for vendor-prefix transform property
+//   $needs-prefixes: false;
+//   $webkit: ();
+//   $moz: ();
+//   $spec: ();
+
+//   // Create lists for vendor-prefixed transform
+//   @each $list in $properties {
+//     @if nth($list, 1) == "transform" {
+//       $needs-prefixes: true;
+//       $list1: -webkit-transform;
+//       $list2: -moz-transform;
+//       $list3: ();
+
+//       @each $var in $list {
+//         $list3: join($list3, $var);
+
+//         @if $var != "transform" {
+//           $list1: join($list1, $var);
+//           $list2: join($list2, $var);
+//         }
+//       }
+
+//       $webkit: append($webkit, $list1);
+//       $moz:    append($moz,    $list2);
+//       $spec:   append($spec,   $list3);
+//     } @else {
+//       $webkit: append($webkit, $list, comma);
+//       $moz:    append($moz,    $list, comma);
+//       $spec:   append($spec,   $list, comma);
+//     }
+//   }
+
+//   @if $needs-prefixes {
+//     -webkit-transition: $webkit;
+//        -moz-transition: $moz;
+//             transition: $spec;
+//   } @else {
+//     @if length($properties) >= 1 {
+//       @include prefixer(transition, $properties, webkit moz spec);
+//     } @else {
+//       $properties: all 0.15s ease-out 0s;
+//       @include prefixer(transition, $properties, webkit moz spec);
+//     }
+//   }
+// }
+
+// @mixin transition-property($properties...) {
+//   -webkit-transition-property: transition-property-names($properties, "webkit");
+//      -moz-transition-property: transition-property-names($properties, "moz");
+//           transition-property: transition-property-names($properties, false);
+// }
+
+// @mixin transition-duration($times...) {
+//   @include prefixer(transition-duration, $times, webkit moz spec);
+// }
+
+// @mixin transition-timing-function($motions...) {
+//   // ease | linear | ease-in | ease-out | ease-in-out | cubic-bezier()
+//   @include prefixer(transition-timing-function, $motions, webkit moz spec);
+// }
+
+// @mixin transition-delay($times...) {
+//   @include prefixer(transition-delay, $times, webkit moz spec);
+// }
+
+

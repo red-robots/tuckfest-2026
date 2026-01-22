@@ -1,0 +1,6 @@
+[data-name="certifications"] .acf-editor-wrap .mce-edit-area.mce-container.mce-panel iframe {
+  height: 200px!important;
+}
+body.toplevel_page_acf-options .acf-field-repeater[data-name="social_media_links"] [data-name="icon"] .image-wrap img {
+	max-height: 50px!important;
+}

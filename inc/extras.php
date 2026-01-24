@@ -581,3 +581,20 @@ function hide_editor_for_specific_templates() {
     }
 }
 
+
+add_shortcode( 'online_buttons', 'online_buttons_func' );
+function online_buttons_func( $atts ) {
+  global $post;
+  $output = '';
+  $a = shortcode_atts( array(
+    'title'=>'',
+  ), $atts );
+  $title = (isset($a['title']) && $a['title']) ? $a['title'] : '';
+  $output .= '<div class="buttonsContainer">';
+  if($title) {
+    $output .= '<p class="buttonsTitle">'.$title.':</p>';
+  }
+  $output .= '<div class="buttonsList"></div>';
+  $output .= '</div>';
+  return $output;
+}

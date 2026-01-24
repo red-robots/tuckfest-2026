@@ -5,6 +5,108 @@
  */
 jQuery(document).ready(function($){  
 
+  // if( $('#vendor-carousel').length ) {
+  //   $('#vendor-carousel').owlCarousel({
+  //     center: false,
+  //     items:2,
+  //     nav: true,
+  //     loop:true,
+  //     margin:0,
+  //     autoplay:true,
+  //     smartSpeed: 1000,
+  //     autoplayTimeout:10000,
+  //     autoplayHoverPause:true,
+  //     responsive:{
+  //       400:{
+  //         items:1
+  //       },
+  //       600:{
+  //         items:1
+  //       },
+  //       960:{
+  //         items:2
+  //       },
+  //       1024:{
+  //         items:3
+  //       },
+  //       1480:{
+  //         items:5
+  //       }
+  //     }
+  //   });
+  // }
+
+  let slickEl = document.getElementById('vendor-carousel');
+  if (slickEl) {
+    var $slickCarousel = $('#vendor-carousel');
+    // $slick.on('init', function (event, slick, direction) {
+    //     const container = document.querySelector('.slick-track');
+    //     window.lightGallery(container, {
+    //         plugins: [
+    //             lgZoom,
+    //             lgThumbnail,
+    //         ],
+    //         preload: 4,
+    //     });
+    // });
+    // $slick.slick({
+    //   slidesToShow: 5,
+    // });
+
+    // $slickCarousel.on('init', function (event, slick, direction) {
+    //   console.log('Slick slider initialized');
+    //   const container = document.querySelector('.slick-track');
+    //   lightGallery(container, {
+    //       thumbnail: false,
+    //       pager: false,
+    //       plugins: [],
+    //       hash: false,
+    //       preload: 4,
+    //   });
+    // });
+
+    $slickCarousel.slick({
+      centerMode: true,
+      slidesToShow: 5,
+      focusOnSelect: true,
+      swipe: false,
+      autoplay: true,
+      autoplaySpeed: 3000,
+      prevArrow: '<div class="slick-prev">&#9665;</div>',
+      nextArrow: '<div class="slick-next">&#9655;</div>',
+      responsive: [
+        {
+          breakpoint: 1250,
+          settings: {
+            swipe: true,
+            centerMode: true,
+            slidesToShow: 5
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            swipe: true,
+            slidesToShow: 3
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            // arrows: false,
+            // centerMode: true,
+            // centerPadding: '40px',
+            swipe: true,
+            slidesToShow: 1
+          }
+        }
+      ]
+    });
+
+  }
+
+
+
   if( $('.flexible-content-wrapper').length==0 ) {
     const lenis = new Lenis({
       lerp: 0.1

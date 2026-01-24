@@ -53,6 +53,19 @@ function bellaworks_scripts() {
     true 
   );
 
+  wp_enqueue_script( 
+    'bellaworks-carousel', 
+    get_template_directory_uri() . '/assets/js/slick.min.js', 
+    array(), '2.3.4', 
+    true 
+  );
+  
+  wp_enqueue_script( 
+    'bellaworks-carousel', 
+    get_template_directory_uri() . '/assets/js/owl.carousel.min.js', 
+    array(), '2.3.4', 
+    true 
+  );
 
   wp_enqueue_script( 
 		'bellaworks-custom', 

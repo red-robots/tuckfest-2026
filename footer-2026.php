@@ -8,12 +8,14 @@
     <div class="footerInner">
       <div class="flexwrap">
         <?php if ($footer_logo) { ?>
-        <div id="footlogo" class="footcol left">
-          <?php if ($footer_logo_website) { ?>
-            <a href="<?php echo $footer_logo_website ?>" target="_blank"><img src="<?php echo $footer_logo['url'] ?>" alt="<?php echo $footer_logo['title'] ?>" class="footlogo"></a>
-          <?php } else { ?>
-            <img src="<?php echo $footer_logo['url'] ?>" alt="<?php echo $footer_logo['title'] ?>" class="footlogo"> 
-          <?php } ?>
+        <div class="footcol left">
+          <div id="footlogo">
+            <?php if ($footer_logo_website) { ?>
+              <a href="<?php echo $footer_logo_website ?>" target="_blank"><img src="<?php echo $footer_logo['url'] ?>" alt="<?php echo $footer_logo['title'] ?>" class="footlogo"></a>
+            <?php } else { ?>
+              <img src="<?php echo $footer_logo['url'] ?>" alt="<?php echo $footer_logo['title'] ?>" class="footlogo"> 
+            <?php } ?>
+          </div>
         </div>
         <?php } ?>
 

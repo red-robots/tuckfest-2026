@@ -932,6 +932,16 @@ body:has(.flexible-content-wrapper) {
       justify-content: space-between;
     }
   }
+  .footcol.left {
+    display: inline-flex;
+    align-content: center;
+    align-items: center;
+    #footlogo, #footlogo a {
+      display: inline-flex;
+      align-content: center;
+      align-items: center;
+    }
+  }
   .footcol.right {
     display: flex;
     flex-wrap: wrap;
@@ -1050,6 +1060,12 @@ body:has(.flexible-content-wrapper) {
         flex-wrap: wrap;
         flex-direction: column;
         justify-content: center;
+      }
+      .footcol.right {
+        margin-top: 20px;
+        .signUpContainer {
+          gap: 1rem;
+        }
       }
       .footSocialMedia {
         padding-left: 0!important;

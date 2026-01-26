@@ -598,3 +598,9 @@ function online_buttons_func( $atts ) {
   $output .= '</div>';
   return $output;
 }
+
+
+function pageHasFlexibleContent() {
+  $flexible_content = get_field('the_flexible_content');
+  return ($flexible_content) ? $flexible_content : '';
+}

@@ -2,14 +2,16 @@
 /**
  * The template for Home Page
  */ 
-$flexible_content = get_field('the_flexible_content');
-if($flexible_content) {
+$flexible_content = pageHasFlexibleContent();
+if( $flexible_content ) {
   get_header('2026');
+  while ( have_posts() ) : the_post();
+    include( locate_template('parts-flexible/home-content.php') );
+  endwhile;
+  get_footer('2026');  
 } else {
   get_header();
-}
-?>
-<?php while ( have_posts() ) : the_post(); ?>
+  while ( have_posts() ) : the_post(); ?>
   <?php if($flexible_content) { ?>
     <?php include( locate_template('parts-flexible/home-content.php') ); ?>
   <?php } else { ?>
@@ -23,5 +25,4 @@ if($flexible_content) {
     	<?php } ?>
   <?php } ?>
 <?php endwhile; ?>  
-<?php
-get_footer();
+<?php }

@@ -6,6 +6,8 @@
   include( locate_template('parts-flexible/part_event_cards.php') );
   include( locate_template('parts-flexible/part_vendors_carousel.php') );
   include( locate_template('parts-flexible/part_contact_information.php') );
+  include( locate_template('parts-flexible/part_text_content_buttons.php') );
+  include( locate_template('parts-flexible/part_gallery_collage.php') );
 $ctr++; endwhile; ?>
 </div>  
 <?php } ?>
@@ -18,10 +20,6 @@ if( document.querySelectorAll('.buttons-hidden-shortcode') ) {
     let buttons = button.querySelector('.buttons');
     if( parentDiv.querySelectorAll('.buttonsContainer') ) {
       let buttonsContainer = parentDiv.querySelectorAll('.buttonsList');
-      //buttonsContainer[index].innerHTML = '';
-      // buttonsContainer.forEach((container) => {
-
-      // });
       buttonsContainer[index].append(buttons);
     }
   });

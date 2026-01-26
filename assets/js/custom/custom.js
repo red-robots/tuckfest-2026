@@ -5,66 +5,9 @@
  */
 jQuery(document).ready(function($){  
 
-  // if( $('#vendor-carousel').length ) {
-  //   $('#vendor-carousel').owlCarousel({
-  //     center: false,
-  //     items:2,
-  //     nav: true,
-  //     loop:true,
-  //     margin:0,
-  //     autoplay:true,
-  //     smartSpeed: 1000,
-  //     autoplayTimeout:10000,
-  //     autoplayHoverPause:true,
-  //     responsive:{
-  //       400:{
-  //         items:1
-  //       },
-  //       600:{
-  //         items:1
-  //       },
-  //       960:{
-  //         items:2
-  //       },
-  //       1024:{
-  //         items:3
-  //       },
-  //       1480:{
-  //         items:5
-  //       }
-  //     }
-  //   });
-  // }
-
   let slickEl = document.getElementById('vendor-carousel');
   if (slickEl) {
     var $slickCarousel = $('#vendor-carousel');
-    // $slick.on('init', function (event, slick, direction) {
-    //     const container = document.querySelector('.slick-track');
-    //     window.lightGallery(container, {
-    //         plugins: [
-    //             lgZoom,
-    //             lgThumbnail,
-    //         ],
-    //         preload: 4,
-    //     });
-    // });
-    // $slick.slick({
-    //   slidesToShow: 5,
-    // });
-
-    // $slickCarousel.on('init', function (event, slick, direction) {
-    //   console.log('Slick slider initialized');
-    //   const container = document.querySelector('.slick-track');
-    //   lightGallery(container, {
-    //       thumbnail: false,
-    //       pager: false,
-    //       plugins: [],
-    //       hash: false,
-    //       preload: 4,
-    //   });
-    // });
-
     $slickCarousel.slick({
       centerMode: true,
       slidesToShow: 5,
@@ -108,30 +51,32 @@ jQuery(document).ready(function($){
 
 
   if( $('.flexible-content-wrapper').length==0 ) {
-    const lenis = new Lenis({
-      lerp: 0.1
-    });
-    function raf(time) {
-      lenis.raf(time)
+    if( !$('body').hasClass('homepage') ) {
+      const lenis = new Lenis({
+        lerp: 0.1
+      });
+      function raf(time) {
+        lenis.raf(time)
+        requestAnimationFrame(raf);
+      }
       requestAnimationFrame(raf);
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.utils.toArray('.polmov').forEach((polmov) => {
+        gsap.fromTo(polmov, {
+          y: 0,
+        }, {
+          duration: 1,
+          y: 100,
+          scrollTrigger: {
+            trigger: polmov,
+            start: 'top center',
+            end: 'bottom center',
+            // markers: true,
+            scrub: -2
+          }
+        })
+      });
     }
-    requestAnimationFrame(raf);
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.utils.toArray('.polmov').forEach((polmov) => {
-      gsap.fromTo(polmov, {
-        y: 0,
-      }, {
-        duration: 1,
-        y: 100,
-        scrollTrigger: {
-          trigger: polmov,
-          start: 'top center',
-          end: 'bottom center',
-          // markers: true,
-          scrub: -2
-        }
-      })
-    });
   }
 
   $('.video-fancybox').fancybox({

@@ -3,6 +3,7 @@ $vendors = get_sub_field('vendors');
 $bottomText = get_sub_field('bottom_text');
 $buttons = get_sub_field('buttons');
 $backgroundImage = get_sub_field('background_image');
+$background_overlay = get_sub_field('background_overlay');
 $repeatableClass = 'repeatable--'.get_row_layout().' repeatable--'.get_row_layout().$ctr;
 if($video_thumbnail && $video_url) { ?>
 <section data-group="<?php echo get_row_layout() ?>" class="repeatable <?php echo $repeatableClass ?>">
@@ -51,7 +52,7 @@ if($video_thumbnail && $video_url) { ?>
   <?php } ?>
 
   <?php if ($bottomText) { ?>
-  <div class="wrapper bottomText">
+  <div class="wrapper textContainer">
     <div class="textWrap"><?php echo anti_email_spam($bottomText) ?></div>
     <?php if ($buttons) { ?>
     <div class="buttons">
@@ -70,7 +71,11 @@ if($video_thumbnail && $video_url) { ?>
   <?php } ?>
 
   <?php if ($backgroundImage) { ?>
-  <div class="background-image" style="background-image:url('<?php echo $backgroundImage['url'] ?>')"></div>
+  <div class="background-image" style="background-image:url('<?php echo $backgroundImage['url'] ?>')">
+    <?php if ($background_overlay) { ?>
+    <div class="background-overlay" style="background-color:<?php echo $background_overlay ?>"></div>
+    <?php } ?>
+  </div>
   <?php } ?>
 </section>
 <?php } ?>

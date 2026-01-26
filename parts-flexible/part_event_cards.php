@@ -1,9 +1,11 @@
 <?php if( get_row_layout() == 'event_cards' ) {
 $cards = get_sub_field('cards');
+$backgroundImage = get_sub_field('background_image');
+$background_overlay = get_sub_field('background_overlay');
 $repeatableClass = 'repeatable--'.get_row_layout().' repeatable--'.get_row_layout().$ctr;
 if($cards) { ?>
 <section data-group="<?php echo get_row_layout() ?>" class="repeatable <?php echo $repeatableClass ?>">
-  <div class="wrapper">
+  <div class="wrapper contentWrapper">
     <div class="eventCards">
     <?php foreach ($cards as $c) { 
       $image = $c['image'];
@@ -34,7 +36,7 @@ if($cards) { ?>
                   $btnName = (isset($btn['title']) && $btn['title']) ? $btn['title'] : '';
                   $btnTarget = (isset($btn['target']) && $btn['target']) ? ' target="'.$btn['target'].'"' : '';
                   if($btnName && $btnLink) { ?>
-                  <a href="<?php echo $btnLink ?>" class="button"<?php echo $btnTarget ?>><?php echo $btnName ?></a>
+                  <a href="<?php echo $btnLink ?>" class="button-yellow"<?php echo $btnTarget ?>><?php echo $btnName ?></a>
                   <?php } ?>
                 <?php } ?>
               </div>
@@ -48,6 +50,13 @@ if($cards) { ?>
     <?php } ?>
     </div>
   </div>
+  <?php if ($backgroundImage) { ?>
+  <div class="background-image" style="background-image:url('<?php echo $backgroundImage['url'] ?>')">
+    <?php if ($background_overlay) { ?>
+    <div class="background-overlay" style="background-color:<?php echo $background_overlay ?>"></div>
+    <?php } ?>
+  </div>
+  <?php } ?>
 </section>
 <?php } ?>
 <?php } ?>

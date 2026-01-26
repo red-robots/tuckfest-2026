@@ -10,7 +10,8 @@ $fontPrimary: 'Brandon Grotesque', sans-serif;
   text-align: center;
   text-transform: uppercase;
   padding: 5px 15px;
-  border-radius: 5px;
+  border-radius: 0!important;
+  min-width: 140px;
   transition: all ease .3s;
   &:hover, &:focus {
     background-color: #FFF;
@@ -129,6 +130,26 @@ body:has(.flexible-content-wrapper) {
 
 .flexible-content-wrapper {
   overflow: hidden;
+  .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    .background-overlay {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
   .repeatable {
     position: relative;
   }
@@ -136,6 +157,13 @@ body:has(.flexible-content-wrapper) {
     max-width: 1300px;
     width: 100%;
     margin: 0 auto;
+    &.textContainer {
+      max-width: 1100px;
+    }
+  }
+  .contentWrapper {
+    position: relative;
+    z-index: 5;
   }
   .repeatable--fullscreen_hero_image {
     font-family: $fontPrimary;
@@ -143,15 +171,7 @@ body:has(.flexible-content-wrapper) {
     @media screen and (min-height:767px) {
       height: 100vh;
     }
-    .background-image {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-    }
+    
     .middleImage {
       position: absolute;
       left: 0;
@@ -357,25 +377,11 @@ body:has(.flexible-content-wrapper) {
         }
         .buttons {
           display: flex;
-          gap:1rem;
+          gap:1.5rem;
           margin-top: 15px;
         }
-        .button {
-          display: inline-block;
-          text-decoration: none;
-          background-color: #FFE900;
-          color: #000;
-          font-family: $tuckfest_hand;
-          font-size: 12px;
-          text-transform: uppercase;
-          padding: 5px 15px;
-          border-radius: 5px;
-          transition: all ease .3s;
-          &:hover, &:focus {
-            background-color: #FFF;
-            transform: translateY(-1px);
-            box-shadow: 2px 5px .5rem rgba(0,0,0,.5);
-          }
+        .button-yellow {
+          min-width: 130px;
         }
       }
       @media screen and (max-width:1024px) {
@@ -403,11 +409,6 @@ body:has(.flexible-content-wrapper) {
   padding-top: 150px;
   padding-bottom: 100px;
   .background-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     &:before {
       content:"";
       display: block;
@@ -425,7 +426,7 @@ body:has(.flexible-content-wrapper) {
     margin: 0 auto;
     position: relative;
     z-index: 5;
-    &.bottomText {
+    &.textContainer {
       max-width: 1000px;
     }
   }
@@ -548,7 +549,7 @@ body:has(.flexible-content-wrapper) {
       }
     }
   }
-  .bottomText {
+  .textContainer {
     text-align: center;
     padding-top: 100px;
     padding-bottom: 50px;
@@ -587,6 +588,7 @@ body:has(.flexible-content-wrapper) {
       line-height: 1.6;
       letter-spacing: 0.02em;
       text-transform: uppercase;
+      margin-bottom: 25px;
     }
     .buttons {
       display: flex;
@@ -657,6 +659,400 @@ body:has(.flexible-content-wrapper) {
           margin: 0 0 15px!important;
           font-weight: bold;
         }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    .flexwrap {
+      .textCol, .imageCol {
+        width: 100%!important;
+      }
+      .textCol {
+        display: flex;
+        flex-wrap: wrap;
+        div.text, .buttonsContainer {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+.repeatable--text_content_buttons {
+  padding-top: 130px;
+  padding-bottom: 150px;
+  overflow: hidden;
+  &:before {
+    pointer-events: none;
+    content:"";
+    display: block;
+    width: 50%;
+    height: 50%;
+    background-image: url('assets/images/circular-abstract.png');
+    background-size: cover;
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    transform: translateX(50%) translateY(-25%);
+    z-index: 3;
+    @media screen and (max-width:1380px) {
+      width: 100%;
+      height: 30%;
+    }
+    @media screen and (max-width:768px) {
+      width: 100%;
+      height: 20%;
+      right: -20vw;
+    }
+  }
+  .background-image {
+    &:before {
+      content:"";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,.25);
+    }
+  }
+  .wrapper {
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 5;
+    &.textContainer {
+      max-width: 1100px;
+    }
+  }
+
+  .textContainer {
+    text-align: center;
+    position: relative;
+    z-index: 5;
+    @media screen and (max-width:1380px) {
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+    &:has(.buttons) {
+      &:after {
+        pointer-events: none;
+        content:"";
+        display: block;
+        width: 100px;
+        height: 50%;
+        background-image: url('assets/images/big-arrow.png');
+        background-size: 100%;
+        background-position: bottom left;
+        background-repeat: no-repeat;
+        position: absolute;
+        bottom: -2vw;
+        left: -3vw;
+        transform: rotate(140deg);
+        @media screen and (max-width:1480px) {
+          left: 4vw;
+        }
+        @media screen and (max-width:1380px) {
+          display: none;
+        }
+      }
+    }
+    .textWrap {
+      position: relative;
+      z-index: 5;
+    }
+    h2 {
+      font-family: $tuckfest_hand!important;
+      font-size: 40px;
+      line-height: 1.2;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: $yellow;
+      margin: 0 0 30px;
+    }
+    p {
+      font-family: $fontPrimary;
+      font-size: 18px;
+      line-height: 1.6;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+    }
+    .buttons {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-top: 40px;
+      position: relative;
+      @media screen and (max-width:1380px) {
+        padding-left: 80px;
+        &:after {
+          pointer-events: none;
+          content:"";
+          display: block;
+          width: 80px;
+          height: 300px;
+          background-image: url('assets/images/big-arrow.png');
+          background-size: 100%;
+          background-position: bottom left;
+          background-repeat: no-repeat;
+          position: absolute;
+          top: -145px;
+          left: 0;
+          transform: rotate(140deg);
+        }
+      }
+      @media screen and (max-width: 860px) {
+        flex-wrap: wrap;
+      }
+    }
+  }
+}
+
+.repeatable--gallery_collage {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  .background-image {
+    &:before {
+      content:"";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,.75);
+    }
+    &:has(.background-overlay):before {
+      display: none;
+    }
+  }
+  .collageWrapper {
+    position: relative;
+    z-index: 10;
+    padding-left: 30px;
+    padding-right: 30px;
+    @include mid {
+      padding-left: 80px;
+      padding-right: 80px;
+    }
+  }
+  .collageImages {
+    display: flex;
+    flex-wrap: wrap;
+    .collage {
+      padding: 10px;
+      .inside {
+        margin: 0 0;
+        position: relative;
+        padding-bottom: 25vw;
+        a.imageLink {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          transition: all ease .3s;
+          &:before {
+            content:"";
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 3;
+            opacity: 0;
+            box-shadow: 0 0 0 2px rgba(255,255,255,1) inset;
+            transition: all ease .3s;
+          }
+          &:hover, &:focus {
+            &:before {
+              opacity: 1;
+              box-shadow: 0 0 0 5px rgba(255,255,255,1) inset;
+            }
+          }
+        }
+        img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+      @media screen and (max-width:1024px) {
+        width: 50%!important;
+        .inside {
+          padding-bottom: 50vw;
+        }
+      }
+      @media screen and (max-width:768px) {
+        width: 100%!important;
+        .inside {
+          padding-bottom: 80vw;
+        }
+      }
+      @media screen and (max-width:480px) {
+        .inside {
+          padding-bottom: 90vw;
+        }
+      }
+    }
+    
+  }
+}
+
+
+.Footer {
+  .footerInner {
+    padding-left: 30px;
+    padding-right: 30px;
+    @include mid {
+      padding-left: 80px;
+      padding-right: 80px;
+    }
+    .flexwrap {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }
+  .footcol.right {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    @include mid {
+      align-items: center;
+      justify-content: flex-end;
+    }
+  }
+  .footSocialMedia {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: .35rem;
+    padding-left: 50px;
+  }
+  .footSocialMedia a {
+    display: inline-flex;
+    justify-content: center;
+    width: 28px;
+    height: 30px;
+    position: relative;
+    transition: all ease .3s;
+    &:hover, &:focus {
+      transform: translatey(-3px);
+    }
+  }
+  .footSocialMedia a img {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    filter: brightness(0) invert(1);
+    position:absolute;
+    top: 0;
+    left: 0;
+    object-fit: contain;
+    object-position:center;
+    transform: scale(0.75);
+  }
+  .footSocialMedia a[aria-label="facebook"] img {
+    transform: scale(0.85);
+  }
+  .footSocialMedia a[aria-label="youtube"] img {
+    transform: scale(1);
+  }
+  .footSocialMedia a[aria-label="youtube"] {
+    left: 5px;
+  }
+
+  .signUpContainer {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.5rem;
+    .formText {
+      font-family: $tuckfest_hand!important;
+      font-size: 13px;
+      line-height: 1.1;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: $yellow;
+    }
+    #mc_embed_shell {
+      width: auto;
+      display: flex;
+      align-items: center;
+      margin: 5px 0!important;
+      form {
+        display: flex;
+        align-items: center;
+        div {
+          display: flex;
+          align-items: flex-start;
+        }
+      }
+      input[type="text"],
+      input[type="email"],
+      [type="submit"] {
+        height: 40px;
+        box-sizing: border-box;
+        appearance: none;
+        border: none!important;
+        border-radius: 0;
+        margin: 0 0!important;
+      }
+      [type="submit"] {
+        padding: 5px 10px!important;
+        font-family: $tuckfest_hand!important;
+        font-size: 11px!important;
+        line-height: 1.1;
+        letter-spacing: 0.01em;
+        text-transform: uppercase;
+        color: #000;
+        background-color: $yellow;
+        min-width: 130px;
+        margin-left: 5px!important;
+      }
+      input[type="text"],
+      input[type="email"] {
+        width: 200px;
+        padding: 5px 10px!important;
+      }
+    }
+  }
+}
+
+@media screen and (max-width:1250px) {
+  .Footer {
+    padding-top: 20px;
+    padding-bottom: 50px;
+    .footerInner .flexwrap {
+      justify-content: center;
+      flex-direction: column;
+      .footcol.right, .signUpContainer {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .footSocialMedia {
+        padding-left: 0!important;
+        justify-content: center;
+        margin-top: 15px;
       }
     }
   }

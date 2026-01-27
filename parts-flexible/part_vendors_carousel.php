@@ -33,7 +33,7 @@ if($video_thumbnail && $video_url) { ?>
           <?php } ?>
           <figure class="vendor">
             <?php if ($vLink) { ?>
-             <a href="<?php echo $vLink ?>" target="<?php echo $vTarget ?>">
+             <a href="<?php echo $vLink ?>"<?php echo $vTarget ?>>
                <img src="<?php echo $vendor_logo['url'] ?>" alt="<?php echo $vendor_logo['title'] ?>" />
              </a> 
             <?php } else { ?>

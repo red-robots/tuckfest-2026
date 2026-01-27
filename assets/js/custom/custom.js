@@ -5,6 +5,40 @@
  */
 jQuery(document).ready(function($){  
 
+  //Navigation
+  if( $('#main-navigation ul.menu a').length ) {
+    $('#main-navigation ul.menu').each(function(){
+      $(this).find('li').each(function(){
+        if( $(this).hasClass('menu-item-has-children') ) {
+          $(this).append('<button class="menuDropdownBtn" aria-expanded="false"><span class="sr-only">Sub Menu</span></button>');
+        }
+      });
+    });
+  }
+
+  $(document).on('click', '.menu-toggle-button', function(e){
+    e.preventDefault();
+    var isExpanded = $(this).attr('aria-expanded') === 'true';
+    $(this).attr('aria-expanded',!isExpanded);
+    $('#site-navigation').toggleClass('open');
+  });
+
+  $(document).on('click', '.menuDropdownBtn', function(e){
+    e.preventDefault();
+    var isExpanded = $(this).attr('aria-expanded') === 'true';
+    $(this).attr('aria-expanded',!isExpanded);
+    $(this).parent().find('ul.sub-menu').slideToggle();
+  });
+
+  $(document).on('click', '.menu-close', function(e){
+    e.preventDefault();
+    $('.menu-toggle-button').attr('aria-expanded','false');
+    $('#site-navigation').addClass('closed');
+    setTimeout(function(){
+      $('#site-navigation').removeClass('open closed');
+    },700);
+  });
+
   let slickEl = document.getElementById('vendor-carousel');
   if (slickEl) {
     var $slickCarousel = $('#vendor-carousel');

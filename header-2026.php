@@ -87,15 +87,41 @@ $brandStyle = ($brand_image) ? ' style="background-image:url('.$brand_image['url
         <span class="sr-only">Menu</span>
       </button>
     </div>
-    <?php if ( has_nav_menu( 'primary' ) ) { ?>
     <div id="site-navigation">
       <div class="navigation-wrapper">
-        <nav id="navigation" class="main-navigation" role="navigation">
-          <?php wp_nav_menu( array( 'theme_location' => 'primary', 'container'=>false, 'menu_id' => 'primary-menu','link_before'=>'<span>','link_after'=>'</span>') ); ?>
+        <nav id="main-navigation" class="main-navigation" role="navigation">
+          <?php  
+          wp_nav_menu( array(
+            'menu' => 'Main Navigation (2.0)', // Replace with your actual menu name
+            'container'=>false,
+            'menu_id' => 'primary-menu',
+            'link_before'=>'<span>',
+            'link_after'=>'</span>'
+          ) );
+          ?>
+          <?php 
+            //wp_nav_menu( array( 'theme_location' => 'primary', 'container'=>false, 'menu_id' => 'primary-menu','link_before'=>'<span>','link_after'=>'</span>') ); 
+          ?>
         </nav>
+
+        <nav id="secondary-navigation" class="secondary-navigation" role="navigation">
+          <?php  
+          wp_nav_menu( array(
+            'menu' => 'Secondary Navigation', // Replace with your actual menu name
+            'container'=>false,
+            'menu_id' => 'secondary-menu',
+            'link_before'=>'<span>',
+            'link_after'=>'</span>'
+          ) );
+          ?>
+        </nav>
+
+        <div class="nav-social-media">
+          <?php include( locate_template('parts/social-media-links.php') ); ?>
+        </div>
       </div>
+      <button class="menu-close"><span class="sr-only">Menu Close</span></button>
     </div>
-    <?php } ?>
 	</header>
 	
 	<div id="content" class="site-content">

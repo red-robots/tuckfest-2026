@@ -325,6 +325,13 @@ body:has(.flexible-content-wrapper) {
     }
   }
 
+  &.logged-in.admin-bar {
+    .site-header.site-header-new {
+      #site-navigation .menu-close {
+        top: 50px;
+      }
+    }
+  }
 }
 
 .sectionTitle {

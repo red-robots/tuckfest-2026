@@ -1901,6 +1901,7 @@ body:has(.flexible-content-wrapper) .site-header.site-header-new #site-navigatio
 body:has(.flexible-content-wrapper) .site-header.site-header-new #site-navigation .socialMediaLinks a[aria-label=facebook]{left:5px}
 body:has(.flexible-content-wrapper) .site-header.site-header-new #site-navigation .socialMediaLinks a img{width:auto;height:40px;-webkit-filter:brightness(0) saturate(100%) invert(73%) sepia(96%) saturate(749%) hue-rotate(5deg);filter:brightness(0) saturate(100%) invert(73%) sepia(96%) saturate(749%) hue-rotate(5deg)}
 body:has(.flexible-content-wrapper) .site-header.site-header-new #site-navigation .socialMediaLinks a:hover img,body:has(.flexible-content-wrapper) .site-header.site-header-new #site-navigation .socialMediaLinks a:focus img{-webkit-filter:brightness(0) invert(1);filter:brightness(0) invert(1)}
+body:has(.flexible-content-wrapper).logged-in.admin-bar .site-header.site-header-new #site-navigation .menu-close{top:50px}
 .sectionTitle{font-family:"TuckfestHand",sans-serif !important;font-size:40px;line-height:1.2;letter-spacing:.1em;text-transform:uppercase;color:#ffea00;margin:0 0 30px}
 .flexible-content-wrapper{overflow:hidden}
 .flexible-content-wrapper .background-image{position:absolute;top:0;left:0;width:100%;height:100%;background-size:cover;background-position:center;background-repeat:no-repeat;background-color:transparent}

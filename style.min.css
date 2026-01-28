@@ -1871,7 +1871,7 @@ body:has(.flexible-content-wrapper) .site-header.site-header-new .logo{padding-l
 body:has(.flexible-content-wrapper) .site-header.site-header-new .logo a{width:100%;height:auto}
 body:has(.flexible-content-wrapper) .site-header.site-header-new .logo a img{width:100%;height:auto}
 body:has(.flexible-content-wrapper) .site-header.site-header-new .menu-toggle-button{-webkit-appearance:none;-moz-appearance:none;appearance:none;border:0;display:block;width:50px;height:50px;position:absolute;top:-15px;right:-15px;background-image:url("assets/images/menu-toggle.png");background-size:100%;background-position:center;background-repeat:no-repeat;background-color:transparent}
-body:has(.flexible-content-wrapper) .site-header.site-header-new #site-navigation{position:absolute;top:0;right:0;width:395px;height:100vh;z-index:500;padding:90px 0 0 !important;height:100vh;background:rgba(0,0,0,.88);display:none;-webkit-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-duration:.7s;animation-duration:.7s}
+body:has(.flexible-content-wrapper) .site-header.site-header-new #site-navigation{position:absolute;top:0;right:0;width:395px;height:100vh;z-index:500;padding:85px 0 0 !important;height:100vh;background:rgba(0,0,0,.88);display:none;-webkit-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-duration:.7s;animation-duration:.7s}
 body:has(.flexible-content-wrapper) .site-header.site-header-new #site-navigation.open{display:block;-webkit-animation-name:slideInRight;animation-name:slideInRight}
 body:has(.flexible-content-wrapper) .site-header.site-header-new #site-navigation.closed{display:block;-webkit-animation-duration:.6s;animation-duration:.6s;-webkit-animation-name:slideOutRight;animation-name:slideOutRight}
 body:has(.flexible-content-wrapper) .site-header.site-header-new #site-navigation .navigation-wrapper{width:100%;height:100%;padding-bottom:50px;overflow:auto}
@@ -1890,12 +1890,12 @@ body:has(.flexible-content-wrapper) .site-header.site-header-new #site-navigatio
 body:has(.flexible-content-wrapper) .site-header.site-header-new #site-navigation ul.menu>li ul li{margin-top:5px;margin-bottom:5px}
 body:has(.flexible-content-wrapper) .site-header.site-header-new #site-navigation ul.menu>li ul a{display:block;text-decoration:none;color:#fff;font-size:18px;line-height:1.2;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px}
 body:has(.flexible-content-wrapper) .site-header.site-header-new #site-navigation ul.menu>li ul ul{display:none}
-body:has(.flexible-content-wrapper) .site-header.site-header-new #site-navigation ul.menu>li>a{padding:14px 5px;display:block;text-decoration:none;color:#fff;font-size:20px;font-weight:500;line-height:1.2;letter-spacing:.1em;text-transform:uppercase}
+body:has(.flexible-content-wrapper) .site-header.site-header-new #site-navigation ul.menu>li>a{padding:12px 5px;display:block;text-decoration:none;color:#fff;font-size:18px;font-weight:500;line-height:1.2;letter-spacing:.1em;text-transform:uppercase}
 body:has(.flexible-content-wrapper) .site-header.site-header-new #site-navigation .secondary-navigation{padding-left:40px;padding-right:40px}
-body:has(.flexible-content-wrapper) .site-header.site-header-new #site-navigation .secondary-navigation ul.menu{padding-left:0;padding-right:0;padding-top:25px;margin-top:25px !important;border-top:1px solid rgba(255,255,255,.75)}
+body:has(.flexible-content-wrapper) .site-header.site-header-new #site-navigation .secondary-navigation ul.menu{padding-left:0;padding-right:0;padding-top:20px;margin-top:20px !important;border-top:1px solid rgba(255,255,255,.75)}
 body:has(.flexible-content-wrapper) .site-header.site-header-new #site-navigation .secondary-navigation ul.menu>li>a{font-weight:300}
-body:has(.flexible-content-wrapper) .site-header.site-header-new #site-navigation .nav-social-media{padding-left:40px;padding-right:40px;position:relative;margin-top:25px}
-body:has(.flexible-content-wrapper) .site-header.site-header-new #site-navigation .nav-social-media:before{content:"";display:block;width:100%;border-top:1px solid rgba(255,255,255,.75);margin-bottom:30px}
+body:has(.flexible-content-wrapper) .site-header.site-header-new #site-navigation .nav-social-media{padding-left:40px;padding-right:40px;position:relative;margin-top:20px}
+body:has(.flexible-content-wrapper) .site-header.site-header-new #site-navigation .nav-social-media:before{content:"";display:block;width:100%;border-top:1px solid rgba(255,255,255,.75);margin-bottom:23px}
 body:has(.flexible-content-wrapper) .site-header.site-header-new #site-navigation .socialMediaLinks{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:.75rem;position:relative;left:-10px}
 body:has(.flexible-content-wrapper) .site-header.site-header-new #site-navigation .socialMediaLinks a{display:inline-block;position:relative}
 body:has(.flexible-content-wrapper) .site-header.site-header-new #site-navigation .socialMediaLinks a[aria-label=facebook]{left:5px}

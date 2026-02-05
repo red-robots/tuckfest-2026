@@ -1339,16 +1339,23 @@ body.page-template-page-athletes {
     .rb_buttons {
       margin-top: 25px;
       a {
-        text-decoration: none;
         display: inline-block;
-        background-color: $color_link;
+        text-decoration: none;
+        background-color: #FFE900;
         color: #000;
-        padding: 10px 25px;
-        transform: scale(1);
-        margin-bottom: 10px;
-        &:hover {
+        font-family: $tuckfest_hand;
+        font-size: 12px;
+        text-align: center;
+        text-transform: uppercase;
+        padding: 5px 15px 6px;
+        border-radius: 0!important;
+        min-width: 140px;
+        transition: all ease .3s;
+        &:hover, &:focus {
+          background-color: #FFF;
           color: #000;
-          transform: scale(1.1);
+          transform: translateY(-1px);
+          box-shadow: 2px 5px .5rem rgba(0,0,0,.5);
         }
       }
       .btngroup {

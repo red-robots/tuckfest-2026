@@ -74,37 +74,35 @@ jQuery(document).ready(function ($) {
         }
       }]
     });
-  }
+  } // if( $('.flexible-content-wrapper').length==0 ) {
+  //   if( !$('body').hasClass('homepage') ) {
+  //     const lenis = new Lenis({
+  //       lerp: 0.1
+  //     });
+  //     function raf(time) {
+  //       lenis.raf(time)
+  //       requestAnimationFrame(raf);
+  //     }
+  //     requestAnimationFrame(raf);
+  //     gsap.registerPlugin(ScrollTrigger);
+  //     gsap.utils.toArray('.polmov').forEach((polmov) => {
+  //       gsap.fromTo(polmov, {
+  //         y: 0,
+  //       }, {
+  //         duration: 1,
+  //         y: 100,
+  //         scrollTrigger: {
+  //           trigger: polmov,
+  //           start: 'top center',
+  //           end: 'bottom center',
+  //           // markers: true,
+  //           scrub: -2
+  //         }
+  //       })
+  //     });
+  //   }
+  // }
 
-  if ($('.flexible-content-wrapper').length == 0) {
-    if (!$('body').hasClass('homepage')) {
-      var raf = function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-      };
-
-      var lenis = new Lenis({
-        lerp: 0.1
-      });
-      requestAnimationFrame(raf);
-      gsap.registerPlugin(ScrollTrigger);
-      gsap.utils.toArray('.polmov').forEach(function (polmov) {
-        gsap.fromTo(polmov, {
-          y: 0
-        }, {
-          duration: 1,
-          y: 100,
-          scrollTrigger: {
-            trigger: polmov,
-            start: 'top center',
-            end: 'bottom center',
-            // markers: true,
-            scrub: -2
-          }
-        });
-      });
-    }
-  }
 
   $('.video-fancybox').fancybox({
     touch: true,

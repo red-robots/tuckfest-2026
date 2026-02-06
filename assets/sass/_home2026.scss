@@ -488,11 +488,17 @@ body {
         }
       }
       @media screen and (max-width: 768px) {
+        padding-bottom: 30px;
+        padding-left: 15px;
+        padding-right: 15px;
         .wrap {
-          flex-direction: column;
-          justify-content: center;
-          text-align: center;
-          gap: .5rem;
+          // flex-direction: column;
+          // justify-content: center;
+          // text-align: center;
+          // gap: .5rem;
+          .text {
+            font-size: 2.6vw;
+          }
         }
       }
     }

@@ -2162,7 +2162,8 @@ section.faqs{max-width:700px;margin:0 auto;padding:40px 0}
 .site-header.site-header-new #site-navigation .menu-close{top:28px;right:38px}
 .flexible-content-wrapper .repeatable--fullscreen_hero_image .middleImage{padding-left:35px;padding-right:35px}
 .flexible-content-wrapper .repeatable--fullscreen_hero_image .middleImage .heroText{font-size:18px;line-height:1.3}
-.flexible-content-wrapper .repeatable--fullscreen_hero_image .bottomContent .wrap{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;text-align:center;gap:.5rem}
+.flexible-content-wrapper .repeatable--fullscreen_hero_image .bottomContent{padding-bottom:30px;padding-left:15px;padding-right:15px}
+.flexible-content-wrapper .repeatable--fullscreen_hero_image .bottomContent .wrap .text{font-size:2.6vw}
 .repeatable--event_cards .eventCards .eventCard{width:100% !important}
 .repeatable--event_cards .eventCards .eventCard .inside{padding-bottom:80vw}
 .repeatable--text_content_buttons:before{width:100%;height:20%;right:-20vw}

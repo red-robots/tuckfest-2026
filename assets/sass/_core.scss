@@ -28,7 +28,7 @@ pre {
 }
 body {
 	font-family: $font_primary;
-	font-size: 16px;
+	font-size: 17px;
 	font-weight: 400;
 	line-height: 1.5;
 	color:#fff;
@@ -829,7 +829,7 @@ body.home {
   font-weight: normal;
   word-spacing: .3em;
   h2 {
-    font-family: $font_heading;
+    font-family: $font_primary;
     font-size: 30px;
     font-weight: 500;
     line-height: 1.2;
@@ -1112,12 +1112,13 @@ body {
     float: left;
     margin:0 0;
     font-family: $font_primary;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: normal;
-    line-height:1.1;
+    line-height:1.2;
     text-transform: uppercase;
     text-decoration: none;
     padding: 8px 15px;
+    text-align: center;
     a {
       text-decoration: none;
     }
@@ -1389,7 +1390,7 @@ body.page-template-page-athletes {
       display: inline-block;
     }
     .rb_title {
-      font-family: $font_heading;
+      font-family: $font_primary;
       font-size: 30px;
       font-weight: 500;
       line-height: 1.2;
@@ -2747,9 +2748,9 @@ section.coursemap {
   color: #fff;
   margin: 0 auto;
   transform: translateY(-40px);
-  
-  
   a {
+    font-family: $tuckfest_hand;
+    font-size: 15px;
     display: block;
     text-decoration: none;
     color: #000;

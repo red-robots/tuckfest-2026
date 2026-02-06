@@ -117,7 +117,7 @@ $brandStyle = ($brand_image) ? ' style="background-image:url('.$brand_image['url
         </nav>
 
         <div class="nav-social-media">
-          <?php include( locate_template('parts/social-media-links.php') ); ?>
+          <?php include( locate_template('parts/social-media-links-yellow.php') ); ?>
         </div>
       </div>
       <button class="menu-close"><span class="sr-only">Menu Close</span></button>

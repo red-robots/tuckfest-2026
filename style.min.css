@@ -1859,7 +1859,7 @@ section.anchors li{list-style-type:none;padding:0 20px;margin:0;text-transform:u
 section.anchors a{text-decoration:none}
 .axis{font-family:Axis !important;font-style:normal !important}
 img.invert{-webkit-filter:invert(1);filter:invert(1)}
-body.no-banner #content{padding-top:150px}
+body.subpage.no-banner #content{padding-top:150px}
 .button-yellow{display:inline-block;text-decoration:none;background-color:#ffe900;color:#000;font-family:"TuckfestHand",sans-serif;font-size:11px;text-align:center;text-transform:uppercase;padding:7px 25px;border-radius:0 !important;min-width:140px;-webkit-transition:all ease .3s;transition:all ease .3s}
 .button-yellow:hover,.button-yellow:focus{background-color:#fff;color:#000;-webkit-transform:translateY(-1px);transform:translateY(-1px);-webkit-box-shadow:2px 5px .5rem rgba(0,0,0,.5);box-shadow:2px 5px .5rem rgba(0,0,0,.5)}
 .button-outline-white{display:inline-block;text-decoration:none;text-align:center;background-color:transparent;color:#fff;font-family:"TuckfestHand",sans-serif;font-size:12px;text-transform:uppercase;padding:7px 15px;border-radius:0;border:1px solid #fff;-webkit-transition:all ease .3s;transition:all ease .3s}

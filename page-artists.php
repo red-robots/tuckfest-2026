@@ -40,7 +40,7 @@ $soon = ( isset($comingSoon[0]) ) ? $comingSoon[0] : '';
       <?php //} ?>
 		<?php endwhile; ?>
     <section class="entry-content ">
-         <?php include( locate_template('parts/mc-signup.php') ); ?>
+         <?php //include( locate_template('parts/mc-signup.php') ); ?>
          <?php 
          $past_lineups_title = get_field('past_lineups_title');
           $past_lineups = get_field('past_lineups'); 

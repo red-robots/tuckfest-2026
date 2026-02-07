@@ -5,7 +5,8 @@ $buttons = get_sub_field('buttons');
 $backgroundImage = get_sub_field('background_image');
 $background_overlay = get_sub_field('background_overlay');
 $repeatableClass = 'repeatable--'.get_row_layout().' repeatable--'.get_row_layout().$ctr;
-if($video_thumbnail && $video_url) { ?>
+
+if($vendors || $bottomText) { ?>
 <section data-group="<?php echo get_row_layout() ?>" class="repeatable <?php echo $repeatableClass ?>">
   <?php if ($vendors) { ?>
   <div class="wrapper carouselWrapper">
@@ -16,12 +17,6 @@ if($video_thumbnail && $video_url) { ?>
         $vLink = (isset($vendor_link['url']) && $vendor_link['url']) ? $vendor_link['url'] : '';
         //$vName = (isset($vendor_link['title']) && $vendor_link['title']) ? $vendor_link['title'] : '';
         $vTarget = (isset($vendor_link['target']) && $vendor_link['target']) ? ' target="'.$vendor_link['target'].'"' : '';
-        // $decoration = '';
-        // if(isset($v['decoration']) && $v['decoration']) {
-        //   foreach($v['decoration'] as $vd) {
-        //     $decoration .= ' d-' . $vd;
-        //   }
-        // }
         if($vendor_logo) { ?>
         <div class="vendor-item">
           <?php if(isset($v['decoration']) && $v['decoration']) { ?>

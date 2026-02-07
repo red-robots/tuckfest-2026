@@ -54,10 +54,10 @@ a,input,button,select,textarea {
 	transition: all ease .3s;
 }
 a {
-	color: $color_link;
+	color: $yellow;
 	text-decoration: underline;
 	&:hover {
-    color: tint($color_link,20%);
+    color: tint($yellow,20%);
 	}
 }
 .cf:before, .cf:after {
@@ -748,6 +748,7 @@ body.home {
     min-height: 30em;
   }
 // }
+
 
 .banner-subpage {
   width: 100%;
@@ -2756,12 +2757,13 @@ section.coursemap {
     color: #000;
     background-size: 200% auto;
     box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
-    background-image: linear-gradient(to right, $color_link 0%, $color_link_dark 50%, $color_link 100%);
+    background-color: $yellow;
+    // background-image: linear-gradient(to right, $color_link 0%, $color_link_dark 50%, $color_link 100%);
     transition: 0.5s;
     padding: 20px 50px;
     transform: scale(1);
     &:hover {
-      background-position: right center;
+      // background-position: right center;
       transform: scale(1.1);
     } 
   }
@@ -3016,3 +3018,8 @@ img.invert {
   -webkit-filter: invert(1);
   filter: invert(1);
 }
+
+body.no-banner #content {
+  padding-top: 150px;
+}
+

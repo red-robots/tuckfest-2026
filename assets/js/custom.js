@@ -2,11 +2,21 @@
 
 /**
  *	Custom jQuery Scripts
- *	Date Modified: 04.12.2022
+ *	Date Modified: 02.07.2026
  *	Developed by: Lisa DeBona
  */
 jQuery(document).ready(function ($) {
-  //Navigation
+  $(window).on('scroll', function () {
+    var header = $('#masthead');
+    var scrollThreshold = header.offset().top;
+
+    if ($(window).scrollTop() > 200) {
+      header.addClass('sticky');
+    } else {
+      header.removeClass('sticky');
+    }
+  }); //Navigation
+
   if ($('#main-navigation ul.menu a').length) {
     $('#main-navigation ul.menu').each(function () {
       $(this).find('li').each(function () {
@@ -68,9 +78,9 @@ jQuery(document).ready(function ($) {
         settings: {
           // arrows: false,
           // centerMode: true,
-          // centerPadding: '40px',
+          centerPadding: '8%',
           swipe: true,
-          slidesToShow: 1
+          slidesToShow: 3
         }
       }]
     });

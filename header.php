@@ -62,9 +62,9 @@ src="https://www.facebook.com/tr?id=236370623380911&ev=PageView&noscript=1"
 </head>
 <?php 
 $extraClass = '';
-if(is_page()) {
-  $extraClass .= (get_field('header_image')) ? ' has-banner':' no-banner';
-}
+$banner_image = get_field('banner_image');
+$header_image = get_field('header_image');
+$extraClass .= ( $banner_image || $header_image ) ? ' has-banner':' no-banner';
 $brand_name = (get_field('brand_name','option')) ? get_field('brand_name','option') : get_bloginfo('name');
 $brand_image = get_field('brand_image','option');
 $brandStyle = ($brand_image) ? ' style="background-image:url('.$brand_image['url'].')"':'';

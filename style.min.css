@@ -1865,8 +1865,9 @@ body.subpage.no-banner #content{padding-top:150px}
 .button-outline-white{display:inline-block;text-decoration:none;text-align:center;background-color:transparent;color:#fff;font-family:"TuckfestHand",sans-serif;font-size:12px;text-transform:uppercase;padding:7px 15px;border-radius:0;border:1px solid #fff;-webkit-transition:all ease .3s;transition:all ease .3s}
 .button-outline-white:hover,.button-outline-white:focus{background-color:#fff;color:#000;-webkit-transform:translateY(-1px);transform:translateY(-1px)}
 .site-header.site-header-new{position:absolute;top:0;left:0;width:100%;z-index:500;padding-top:30px;padding-bottom:30px;padding-left:30px;padding-right:30px;background-color:transparent;-webkit-transition:all ease .3s;transition:all ease .3s;-webkit-animation-duration:.75s;animation-duration:.75s;-webkit-animation-fill-mode:both;animation-fill-mode:both}
-.site-header.site-header-new.sticky{position:fixed;background-color:rgba(0,0,0,.75);-webkit-animation-name:fadeInDown;animation-name:fadeInDown;z-index:999999}
 .site-header.site-header-new:before{pointer-events:none;content:"";display:block;width:100%;height:15vw;position:absolute;top:0;left:0;background:-webkit-gradient(linear,left top,left bottom,from(rgba(25,94,166,0.65)),to(rgba(0,0,0,0)));background:linear-gradient(to bottom,rgba(25,94,166,0.65) 0,rgba(0,0,0,0) 100%)}
+.site-header.site-header-new.sticky{position:fixed;background-color:rgba(0,0,0,.75);-webkit-animation-name:fadeInDown;animation-name:fadeInDown;z-index:999999}
+.site-header.site-header-new.sticky:before{opacity:0}
 .site-header.site-header-new .headerInner{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;position:relative;z-index:10}
 .site-header.site-header-new .logo{padding-left:0;padding-right:0;width:260px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;position:relative}
 .site-header.site-header-new .logo a{width:100%;height:auto}

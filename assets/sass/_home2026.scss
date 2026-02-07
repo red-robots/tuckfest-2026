@@ -53,12 +53,6 @@
   transition: all ease .3s;
   animation-duration: .75s;
   animation-fill-mode: both;
-  &.sticky {
-    position: fixed;
-    background-color: rgba(0,0,0,.75);
-    animation-name: fadeInDown;
-    z-index: 999999;
-  }
   @include mid {
     padding-left: 70px;
     padding-right: 70px;
@@ -73,6 +67,15 @@
     top: 0;
     left: 0;
     background: linear-gradient(to bottom,  rgba(25,94,166,0.65) 0%,rgba(0,0,0,0) 100%);
+  }
+  &.sticky {
+    position: fixed;
+    background-color: rgba(0,0,0,.75);
+    animation-name: fadeInDown;
+    z-index: 999999;
+    &:before {
+      opacity: 0;
+    }
   }
   .headerInner {
     display: flex;

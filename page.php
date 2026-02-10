@@ -27,21 +27,17 @@ while ( have_posts() ) : the_post();
 
       <div id="primary" class="content-area default-template">
         <main id="main" class="site-main">
-          <?php while ( have_posts() ) : the_post(); ?>
-          <?php //if ( get_the_content() ) { ?>
           <section class="entry-content ">
           <header class="entry-title ">
             <h1><?php the_title(); ?></h1>
           </header>
           <div class="wrapper"><?php the_content(); ?></div>
           </section>
-          <?php //} ?>
-          <?php endwhile; ?>  
         </main>
       </div>
 
-    <?php }
+    <?php } ?>
 
-  <?php }
+  <?php } 
 endwhile;
 get_footer();

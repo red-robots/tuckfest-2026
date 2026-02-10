@@ -78,7 +78,7 @@ jQuery(document).ready(function ($) {
         settings: {
           // arrows: false,
           // centerMode: true,
-          centerPadding: '8%',
+          centerPadding: '0',
           swipe: true,
           slidesToShow: 3
         }

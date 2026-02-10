@@ -1,5 +1,6 @@
 <?php if( get_row_layout() == 'fullscreen_hero_image' ) {
 $bgImage = get_sub_field('background_image');
+$bgImageMobile = get_sub_field('background_image_mobile');
 $middleImage = get_sub_field('middle_image');
 $heroText = get_sub_field('hero_text');
 $bottomInfo = get_sub_field('bottom_information');
@@ -9,7 +10,10 @@ $rightText = ( isset($bottomInfo['right_text']) ) ? $bottomInfo['right_text'] : 
 $repeatableClass = 'repeatable--'.get_row_layout().' repeatable--'.get_row_layout().$ctr;
 if($bgImage) { ?>
 <section data-group="<?php echo get_row_layout() ?>" class="repeatable <?php echo $repeatableClass ?>">
-  <div class="background-image" style="background-image:url('<?php echo $bgImage['url']?>')"></div>
+  <div class="background-image img-desktop" style="background-image:url('<?php echo $bgImage['url']?>')"></div>
+  <?php if ($bgImageMobile) { ?>
+  <div class="background-image img-mobile" style="background-image:url('<?php echo $bgImageMobile['url']?>')"></div>
+  <?php } ?>
   <?php if ($middleImage || $heroText) { ?>
   <div class="middleImage">
     <div class="wrap">

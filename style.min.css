@@ -1924,6 +1924,7 @@ body.logged-in.admin-bar .site-header.site-header-new #site-navigation .menu-clo
 .flexible-content-wrapper .repeatable--fullscreen_hero_image .bottomContent .text{font-weight:500;font-size:16px;letter-spacing:.15em}
 .flexible-content-wrapper .repeatable--fullscreen_hero_image .bottomContent .stripes{pointer-events:none;position:absolute;left:0;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);width:100%;height:25px;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;padding-left:30px;padding-right:30px}
 .flexible-content-wrapper .repeatable--fullscreen_hero_image .bottomContent .stripes span{display:block;width:50%;height:100%;background-image:url("assets/images/yellow-vertical-stripe.png");background-size:60px;background-position:center;background-repeat:no-repeat}
+.flexible-content-wrapper .repeatable--fullscreen_hero_image .background-image.img-mobile{display:none}
 .flexible-content-wrapper .repeatable--fullwidth_video{position:relative}
 .flexible-content-wrapper .repeatable--fullwidth_video .iframeVideo{position:relative;width:100%;float:left;overflow:hidden}
 .flexible-content-wrapper .repeatable--fullwidth_video .iframeVideo img.video-resizer{width:100%;height:auto;float:left}
@@ -2181,7 +2182,9 @@ section.faqs{max-width:700px;margin:0 auto;padding:40px 0}
 .repeatable--vendors_carousel .carouselWrapper .vendor-item .decoration .barcode{width:50px;height:8px}
 .repeatable--vendors_carousel .carouselWrapper .vendor-item figure img{width:98%}
 }@media screen and (max-width:500px){.site-header.site-header-new #site-navigation{width:100%}
-}@media screen and (max-width:480px){.repeatable--event_cards .eventCards .eventCard .inside{padding-bottom:90vw}
+}@media screen and (max-width:480px){.flexible-content-wrapper .repeatable--fullscreen_hero_image .background-image.img-desktop{display:none}
+.flexible-content-wrapper .repeatable--fullscreen_hero_image .background-image.img-mobile{display:block}
+.repeatable--event_cards .eventCards .eventCard .inside{padding-bottom:90vw}
 .repeatable--vendors_carousel .carouselWrapper{width:80% !important;margin:0 auto;border-left:1px solid rgba(255,255,255,.25);border-right:1px solid rgba(255,255,255,.35)}
 .repeatable--vendors_carousel .carouselWrapper .slick-carousel .slick-next{right:-25px;-webkit-transform:translateY(-50%) scale(0.6);transform:translateY(-50%) scale(0.6)}
 .repeatable--vendors_carousel .carouselWrapper .slick-carousel .slick-prev{left:-25px;-webkit-transform:translateY(-50%) scale(0.6);transform:translateY(-50%) scale(0.6)}

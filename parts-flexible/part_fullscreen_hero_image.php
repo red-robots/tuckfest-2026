@@ -14,6 +14,7 @@ if($bgImage) { ?>
   <?php if ($bgImageMobile) { ?>
   <div class="background-image img-mobile" style="background-image:url('<?php echo $bgImageMobile['url']?>')"></div>
   <?php } ?>
+  
   <?php if ($middleImage || $heroText) { ?>
   <div class="middleImage">
     <div class="wrap">

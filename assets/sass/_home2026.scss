@@ -534,11 +534,13 @@ body {
       display: none;
     }
     @media screen and (max-width:480px) {
-      .background-image.img-desktop {
-        display: none;
-      }
-      .background-image.img-mobile {
-        display: block;
+      &:has(.img-desktop):has(.img-mobile) {
+        .background-image.img-desktop {
+          display: none;
+        }
+        .background-image.img-mobile {
+          display: block;
+        }
       }
     }
   }

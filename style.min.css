@@ -2182,8 +2182,8 @@ section.faqs{max-width:700px;margin:0 auto;padding:40px 0}
 .repeatable--vendors_carousel .carouselWrapper .vendor-item .decoration .barcode{width:50px;height:8px}
 .repeatable--vendors_carousel .carouselWrapper .vendor-item figure img{width:98%}
 }@media screen and (max-width:500px){.site-header.site-header-new #site-navigation{width:100%}
-}@media screen and (max-width:480px){.flexible-content-wrapper .repeatable--fullscreen_hero_image .background-image.img-desktop{display:none}
-.flexible-content-wrapper .repeatable--fullscreen_hero_image .background-image.img-mobile{display:block}
+}@media screen and (max-width:480px){.flexible-content-wrapper .repeatable--fullscreen_hero_image:has(.img-desktop):has(.img-mobile) .background-image.img-desktop{display:none}
+.flexible-content-wrapper .repeatable--fullscreen_hero_image:has(.img-desktop):has(.img-mobile) .background-image.img-mobile{display:block}
 .repeatable--event_cards .eventCards .eventCard .inside{padding-bottom:90vw}
 .repeatable--vendors_carousel .carouselWrapper{width:80% !important;margin:0 auto;border-left:1px solid rgba(255,255,255,.25);border-right:1px solid rgba(255,255,255,.35)}
 .repeatable--vendors_carousel .carouselWrapper .slick-carousel .slick-next{right:-25px;-webkit-transform:translateY(-50%) scale(0.6);transform:translateY(-50%) scale(0.6)}

@@ -84,6 +84,80 @@ jQuery(document).ready(function ($) {
         }
       }]
     });
+  }
+
+  if ($('.collageImages').length) {
+    $('.collageImages').each(function (k) {
+      $(this).attr('id', 'collageImages_' + k);
+    });
+  }
+
+  $(window).on('load resize', function () {
+    mobile_gallery_carousel();
+  });
+
+  function mobile_gallery_carousel() {
+    if ($('.collageImages').length) {
+      if ($(window).width() < 769) {
+        $('.collageImages').each(function (k) {
+          var parent = $(this).parent();
+          var $collage = $(this);
+          var images = $(this).html();
+          var carouselId = 'collageImageCarousel' + k;
+
+          if (parent.find('.collageImageCarousel').length == 0) {
+            $('<div id="' + carouselId + '" class="collageImageCarousel">' + images + '</div>').insertAfter($collage);
+            $collage.hide();
+            $collage.attr('aria-hidden', 'true');
+            var $container = $('#' + carouselId);
+            $container.slick({
+              centerMode: true,
+              slidesToShow: 5,
+              focusOnSelect: true,
+              swipe: false,
+              autoplay: true,
+              autoplaySpeed: 3000,
+              prevArrow: '<div class="slick-prev">&#9665;</div>',
+              nextArrow: '<div class="slick-next">&#9655;</div>',
+              responsive: [{
+                breakpoint: 1250,
+                settings: {
+                  swipe: true,
+                  centerMode: true,
+                  slidesToShow: 5
+                }
+              }, {
+                breakpoint: 768,
+                settings: {
+                  arrows: true,
+                  swipe: true,
+                  centerPadding: '0',
+                  slidesToShow: 3
+                }
+              }, {
+                breakpoint: 480,
+                settings: {
+                  arrows: true,
+                  centerPadding: '0',
+                  swipe: true,
+                  slidesToShow: 2
+                }
+              }]
+            });
+          }
+        });
+      } else {
+        if ($('.collageImageCarousel').length) {
+          $('.collageImages').each(function (k) {
+            $(this).show();
+            $(this).removeAttr('aria-hidden');
+          });
+          $('.collageImageCarousel').each(function () {
+            $(this).remove();
+          });
+        }
+      }
+    }
   } // if( $('.flexible-content-wrapper').length==0 ) {
   //   if( !$('body').hasClass('homepage') ) {
   //     const lenis = new Lenis({

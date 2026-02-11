@@ -604,3 +604,21 @@ function pageHasFlexibleContent() {
   $flexible_content = get_field('the_flexible_content');
   return ($flexible_content) ? $flexible_content : '';
 }
+
+
+function getYouTubeId($url) {
+  parse_str(parse_url($url, PHP_URL_QUERY), $query);
+
+  // Standard YouTube URL (watch?v=)
+  if (!empty($query['v'])) {
+      return $query['v'];
+  }
+
+  // Short youtu.be URL
+  $path = parse_url($url, PHP_URL_PATH);
+  if ($path) {
+      return ltrim($path, '/');
+  }
+
+  return null;
+}

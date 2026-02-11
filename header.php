@@ -104,21 +104,25 @@ $brandStyle = ($brand_image) ? ' style="background-image:url('.$brand_image['url
           ?>
         </nav>
 
-        <nav id="secondary-navigation" class="secondary-navigation" role="navigation">
-          <?php  
-          wp_nav_menu( array(
-            'menu' => 'Secondary Navigation', // Replace with your actual menu name
-            'container'=>false,
-            'menu_id' => 'secondary-menu',
-            'link_before'=>'<span>',
-            'link_after'=>'</span>'
-          ) );
-          ?>
-        </nav>
+        <?php  
+          $secondNav = get_field('secondary_navigation_status','option');
+          $isNavActive = ($secondNav=='off') ? false : true;
+          if($isNavActive) { ?>
+          <nav id="secondary-navigation" class="secondary-navigation" role="navigation">
+            <?php wp_nav_menu( array(
+              'menu' => 'Secondary Navigation', // Replace with your actual menu name
+              'container'=>false,
+              'menu_id' => 'secondary-menu',
+              'link_before'=>'<span>',
+              'link_after'=>'</span>'
+            ) );
+            ?>
+          </nav>
+          <?php } ?>
 
-        <div class="nav-social-media">
-          <?php include( locate_template('parts/social-media-links-yellow.php') ); ?>
-        </div>
+          <div class="nav-social-media">
+            <?php include( locate_template('parts/social-media-links-yellow.php') ); ?>
+          </div>
       </div>
       <button class="menu-close"><span class="sr-only">Menu Close</span></button>
     </div>

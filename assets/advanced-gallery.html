@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Structured Collage Pro</title>
+
+<style>
+body {
+    margin: 0;
+    background: #f4f4f4;
+    font-family: Arial, sans-serif;
+}
+
+.collage-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+/* ================= DESKTOP GRID ================= */
+
+.collage {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 10px;
+    padding: 10px;
+}
+
+.collage-item {
+    height: 200px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.collage-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.w20 { grid-column: span 2; }
+.w30 { grid-column: span 3; }
+.w50 { grid-column: span 5; }
+
+/* ================= ARROWS ================= */
+
+.arrow {
+    display: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    font-size: 22px;
+    padding: 8px 12px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.arrow.prev { left: 10px; }
+.arrow.next { right: 10px; }
+
+
+/* ================= MOBILE CAROUSEL ================= */
+
+@media (max-width: 768px) {
+
+    .collage {
+        display: flex;
+        padding: 0;
+        gap: 0;
+        transition: transform 0.4s ease;
+    }
+
+    .slide {
+        flex: 0 0 100%;
+        display: flex;
+    }
+
+    .slide .collage-item {
+        flex: 0 0 50%;
+        height: 220px;
+        border-radius: 0;
+    }
+
+    .arrow {
+        display: block;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="collage-wrapper">
+    <button class="arrow prev">&#10094;</button>
+    <button class="arrow next">&#10095;</button>
+    <div class="collage" id="collage"></div>
+</div>
+
+<script>
+
+const images = [
+    "https://picsum.photos/id/1001/800/600",
+    "https://picsum.photos/id/1002/800/600",
+    "https://picsum.photos/id/1003/800/600",
+    "https://picsum.photos/id/1004/800/600",
+    "https://picsum.photos/id/1005/800/600",
+    "https://picsum.photos/id/1006/800/600",
+    "https://picsum.photos/id/1008/800/600",
+    "https://picsum.photos/id/1009/800/600",
+    "https://picsum.photos/id/1010/800/600",
+    "https://picsum.photos/id/1011/800/600",
+    "https://picsum.photos/id/1012/800/600",
+    "https://picsum.photos/id/1013/800/600",
+    "https://picsum.photos/id/1014/800/600",
+    "https://picsum.photos/id/1015/800/600",
+    "https://picsum.photos/id/1016/800/600",
+    "https://picsum.photos/id/1018/800/600",
+    "https://picsum.photos/id/1020/800/600",
+    "https://picsum.photos/id/1024/800/600",
+    "https://picsum.photos/id/1035/800/600",
+    "https://picsum.photos/id/1038/800/600",
+    "https://picsum.photos/id/1043/800/600",
+    "https://picsum.photos/id/1050/800/600",
+    "https://picsum.photos/id/1062/800/600",
+    "https://picsum.photos/id/1069/800/600"
+];
+
+const collage = document.getElementById("collage");
+const prevBtn = document.querySelector(".prev");
+const nextBtn = document.querySelector(".next");
+
+function shuffle(array) {
+    return array.sort(() => Math.random() - 0.5);
+}
+
+let selected = [];
+let desktopInterval = null;
+
+/* ================= DESKTOP GRID ================= */
+
+function buildDesktop() {
+    collage.innerHTML = "";
+    selected = shuffle([...images]).slice(0, 12);
+
+    for (let i = 0; i < selected.length; i += 3) {
+
+        let widths = shuffle(["w20", "w30", "w50"]);
+
+        for (let j = 0; j < 3; j++) {
+            const div = document.createElement("div");
+            div.className = `collage-item ${widths[j]}`;
+
+            const img = document.createElement("img");
+            img.src = selected[i + j] + "?t=" + Date.now();
+
+            div.appendChild(img);
+            collage.appendChild(div);
+        }
+    }
+}
+
+/* Auto reshuffle every 5 seconds */
+function startDesktopShuffle() {
+    if (desktopInterval) clearInterval(desktopInterval);
+
+    desktopInterval = setInterval(() => {
+        if (window.innerWidth > 768) {
+            buildDesktop();
+        }
+    }, 5000);
+}
+
+/* ================= MOBILE CAROUSEL ================= */
+
+let index = 1;
+
+function buildMobile() {
+    collage.innerHTML = "";
+    selected = shuffle([...images]).slice(0, 12);
+
+    let slides = [];
+    for (let i = 0; i < selected.length; i += 2) {
+        slides.push(selected.slice(i, i + 2));
+    }
+
+    slides.unshift(slides[slides.length - 1]);
+    slides.push(slides[1]);
+
+    slides.forEach(group => {
+        const slide = document.createElement("div");
+        slide.className = "slide";
+
+        group.forEach(src => {
+            const item = document.createElement("div");
+            item.className = "collage-item";
+            const img = document.createElement("img");
+            img.src = src;
+            item.appendChild(img);
+            slide.appendChild(item);
+        });
+
+        collage.appendChild(slide);
+    });
+
+    updatePosition();
+}
+
+function updatePosition() {
+    const slideWidth = collage.clientWidth;
+    collage.style.transform = `translateX(-${index * slideWidth}px)`;
+}
+
+function nextSlide() {
+    index++;
+    slide();
+}
+
+function prevSlide() {
+    index--;
+    slide();
+}
+
+function slide() {
+    collage.style.transition = "transform 0.4s ease";
+    updatePosition();
+}
+
+collage.addEventListener("transitionend", () => {
+    const slides = document.querySelectorAll(".slide");
+
+    if (index === slides.length - 1) {
+        collage.style.transition = "none";
+        index = 1;
+        updatePosition();
+    }
+
+    if (index === 0) {
+        collage.style.transition = "none";
+        index = slides.length - 2;
+        updatePosition();
+    }
+});
+
+prevBtn.addEventListener("click", prevSlide);
+nextBtn.addEventListener("click", nextSlide);
+
+setInterval(() => {
+    if (window.innerWidth <= 768) nextSlide();
+}, 4000);
+
+/* ================= INIT ================= */
+
+function init() {
+    if (window.innerWidth <= 768) {
+        buildMobile();
+    } else {
+        buildDesktop();
+        startDesktopShuffle();
+    }
+}
+
+window.addEventListener("resize", init);
+window.addEventListener("load", init);
+
+</script>
+
+
+</body>
+</html>

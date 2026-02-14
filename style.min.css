@@ -2185,8 +2185,9 @@ section.faqs{max-width:700px;margin:0 auto;padding:40px 0}
 .repeatable--event_cards .eventCards .eventCard{width:100% !important}
 .repeatable--event_cards .eventCards .eventCard .inside{padding-bottom:80vw}
 .repeatable--vendors_carousel .textContainer{padding-left:30px;padding-right:30px}
-.repeatable--vendors_carousel .textContainer:after{width:100%;height:90px;top:27px;right:5vw;background-size:contain;background-position:top right}
+.repeatable--vendors_carousel .textContainer:after{display:none}
 .repeatable--text_content_buttons:before{width:100%;height:20%;right:-20vw}
+.repeatable--text_content_buttons .textContainer{padding-left:30px;padding-right:30px}
 .repeatable--gallery_collage .collageImages .collage{width:100% !important}
 .repeatable--gallery_collage .collageImages .collage .inside{padding-bottom:80vw}
 }@media screen and (max-width:600px){.repeatable--vendors_carousel .wrapper{padding-left:0;padding-right:0}
@@ -2194,6 +2195,7 @@ section.faqs{max-width:700px;margin:0 auto;padding:40px 0}
 .repeatable--vendors_carousel .carouselWrapper .vendor-item .decoration .stripe{left:-10px;width:70px;height:6px}
 .repeatable--vendors_carousel .carouselWrapper .vendor-item .decoration .barcode{width:50px;height:8px}
 .repeatable--vendors_carousel .carouselWrapper .vendor-item figure img{width:98%}
+.repeatable--contact_information{padding-top:50px}
 }@media screen and (max-width:500px){.site-header.site-header-new #site-navigation{width:100%}
 }@media screen and (max-width:480px){.flexible-content-wrapper .repeatable--fullscreen_hero_image:has(.img-desktop):has(.img-mobile) .background-image.img-desktop{display:none}
 .flexible-content-wrapper .repeatable--fullscreen_hero_image:has(.img-desktop):has(.img-mobile) .background-image.img-mobile{display:block}

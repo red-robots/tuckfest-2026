@@ -1025,12 +1025,13 @@ body {
       top: 0;
       right: -5vw;
       @media screen and (max-width: 768px) {
-        width: 100%;
-        height: 90px;
-        top: 27px;
-        right: 5vw;
-        background-size: contain;
-        background-position: top right;
+        // width: 100%;
+        // height: 90px;
+        // top: 27px;
+        // right: 5vw;
+        // background-size: contain;
+        // background-position: top right;
+        display: none;
       }
     }
     .textWrap {
@@ -1085,6 +1086,9 @@ body {
 .repeatable--contact_information {
   padding-top: 100px;
   padding-bottom: 100px;
+  @media screen and (max-width:600px) {
+    padding-top: 50px;
+  }
   .titleDiv {
     text-align: center;
   }
@@ -1223,6 +1227,10 @@ body {
     @media screen and (max-width:1380px) {
       padding-left: 50px;
       padding-right: 50px;
+    }
+    @media screen and (max-width:768px) {
+      padding-left: 30px;
+      padding-right: 30px;
     }
     &:has(.buttons) {
       &:after {

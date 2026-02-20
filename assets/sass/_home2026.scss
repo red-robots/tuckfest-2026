@@ -1072,11 +1072,11 @@ body {
       border-right: 1px solid rgba(255,255,255,.35);
       .slick-carousel {
         .slick-next {
-          right: -25px;
+          right: -30px;
           transform: translateY(-50%) scale(0.6);
         }
         .slick-prev {
-          left: -25px;
+          left: -30px;
           transform: translateY(-50%) scale(0.6);
         }
       }
@@ -1086,6 +1086,14 @@ body {
   @media screen and (max-width:480px) {
     .carouselWrapper {
       width: 80%!important;
+      .slick-carousel {
+        .slick-next {
+          right: -26px;
+        }
+        .slick-prev {
+          left: -26px;
+        }
+      }
     }
   }
 }

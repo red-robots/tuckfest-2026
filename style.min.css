@@ -1621,7 +1621,7 @@ body.page-template-page-athletes .content-block{-webkit-box-align:center;-ms-fle
 .repeatable-content-blocks .content-block .imagecol .imagediv{width:100%;height:300px;float:left;background-size:cover;background-position:center;background-repeat:no-repeat}
 .repeatable-content-blocks .content-block .imagecol img{width:100%;height:auto;float:left}
 .repeatable-content-blocks .content-block .rb_buttons{margin-top:25px}
-.repeatable-content-blocks .content-block .rb_buttons a{display:inline-block;text-decoration:none;background-color:#ffe900;color:#000;font-family:"TuckfestHand",sans-serif;font-size:11px;text-align:center;text-transform:uppercase;padding:7px 25px 6px;border-radius:0 !important;min-width:140px;-webkit-transition:all ease .3s;transition:all ease .3s}
+.repeatable-content-blocks .content-block .rb_buttons a{display:inline-block;text-decoration:none;background-color:#ff0;color:#000;font-family:"TuckfestHand",sans-serif;font-size:11px;text-align:center;text-transform:uppercase;padding:7px 25px 6px;border-radius:0 !important;min-width:140px;-webkit-transition:all ease .3s;transition:all ease .3s}
 .repeatable-content-blocks .content-block .rb_buttons a:hover,.repeatable-content-blocks .content-block .rb_buttons a:focus{background-color:#fff;color:#000;-webkit-transform:translateY(-1px);transform:translateY(-1px);-webkit-box-shadow:2px 5px .5rem rgba(0,0,0,.5);box-shadow:2px 5px .5rem rgba(0,0,0,.5)}
 .repeatable-content-blocks .content-block .rb_buttons .btngroup{width:100%;float:left;margin:5px 0}
 .repeatable-content-blocks .content-block .rb_buttons .btngroup a{display:block;margin:0;text-transform:uppercase}
@@ -1647,7 +1647,7 @@ body.page-template-page-athletes .content-block{-webkit-box-align:center;-ms-fle
 #primary.single-competition .event-info p:last-child{margin-bottom:0}
 #primary.single-competition .event-info .comp-footer{width:100%;padding:10px 0 0 0;border-top:1px solid #fff;text-align:center}
 #primary.single-competition .event-info .comp-footer .other-links-btn{display:inline-block;-webkit-transition:all ease .2s;transition:all ease .2s;text-decoration:none;width:100%;margin-bottom:15px;text-align:center}
-#primary.single-competition .event-info .comp-footer .other-links-btn a{display:inline-block;text-decoration:none;background-color:#ffe900;color:#000;font-family:"TuckfestHand",sans-serif;font-size:11px;text-align:center;text-transform:uppercase;padding:10px 25px;border-radius:0 !important;min-width:140px;-webkit-transition:all ease .3s;transition:all ease .3s}
+#primary.single-competition .event-info .comp-footer .other-links-btn a{display:inline-block;text-decoration:none;background-color:#ff0;color:#000;font-family:"TuckfestHand",sans-serif;font-size:11px;text-align:center;text-transform:uppercase;padding:10px 25px;border-radius:0 !important;min-width:140px;-webkit-transition:all ease .3s;transition:all ease .3s}
 #primary.single-competition .event-info .comp-footer .other-links-btn a:hover,#primary.single-competition .event-info .comp-footer .other-links-btn a:focus{background-color:#fff;color:#000;-webkit-transform:translateY(-1px);transform:translateY(-1px);-webkit-box-shadow:2px 5px .5rem rgba(0,0,0,.5);box-shadow:2px 5px .5rem rgba(0,0,0,.5)}
 #primary.single-competition .map-image,#primary.single-competition .map-image img{width:100%;height:auto;float:left}
 #primary.single-competition .result-section{width:100%;float:left}

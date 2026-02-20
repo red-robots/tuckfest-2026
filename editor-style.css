@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'TuckfestHand';
+  src: url('assets/webfonts/Handwritingext.woff') format('woff');
+}
+
+.button-yellow {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #ffe900;
+  color: #000;
+  font-family:  "TuckfestHand", sans-serif;
+  font-size: 11px;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 7px 25px;
+  border-radius: 0!important;
+  min-width: 140px;
+  transition: all ease .3s;
+}

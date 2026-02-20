@@ -1063,10 +1063,11 @@ body {
     }
   }
 
-  @media screen and (max-width:480px) {
+  @media screen and (max-width:960px) {
     .carouselWrapper {
-      width: 80%!important;
+      width: 85vw!important;
       margin: 0 auto;
+      padding: 0 0!important;
       border-left: 1px solid rgba(255,255,255,.25);
       border-right: 1px solid rgba(255,255,255,.35);
       .slick-carousel {
@@ -1079,6 +1080,12 @@ body {
           transform: translateY(-50%) scale(0.6);
         }
       }
+    }
+  }
+
+  @media screen and (max-width:480px) {
+    .carouselWrapper {
+      width: 80%!important;
     }
   }
 }

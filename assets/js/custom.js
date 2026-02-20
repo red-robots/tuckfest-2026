@@ -61,16 +61,18 @@ jQuery(document).ready(function ($) {
       prevArrow: '<div class="slick-prev">&#9665;</div>',
       nextArrow: '<div class="slick-next">&#9655;</div>',
       responsive: [{
-        breakpoint: 1250,
+        breakpoint: 960,
         settings: {
           swipe: true,
           centerMode: true,
-          slidesToShow: 5
+          centerPadding: '0',
+          slidesToShow: 4
         }
       }, {
         breakpoint: 768,
         settings: {
           swipe: true,
+          centerPadding: '0',
           slidesToShow: 3
         }
       }, {

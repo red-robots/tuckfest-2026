@@ -16,6 +16,7 @@ $posttype = get_post_type();
       <?php  
       $course_iframe = get_field('course_iframe');
       $registrationLink = get_field("register_button","option");
+      $customRegistration = get_field("custom_registration_link");
       $eventStartDate = get_field("eventStartDate");
       $start_date = ($eventStartDate) ? date('l, M d, Y',strtotime($eventStartDate)) . ' <span>&ndash;</span> ' . date('h:i a',strtotime($eventStartDate)) : '';
       if( $posttype === 'competition' ) {
@@ -25,7 +26,7 @@ $posttype = get_post_type();
 	      	$termID = $t->term_id;
 	      }
 	      $termLink = get_term_link( $termID );
-	  }
+	    }
    //    echo '<pre>';
 	  // print_r($registrationLink);
 	  // echo '</pre>';
@@ -37,7 +38,15 @@ $posttype = get_post_type();
             <li><span class="orange active"><a href="#" data-tab="#eventinfo" class="tablink"><?php echo $start_date ?></a></span></li>
           <?php } ?>
           <?php if($posttype === 'competition'){ ?>
-	            <li><span class="yellow"><a href="<?php echo $registrationLink['url'] ?>" target="_blank">Register</a></span></li>
+            <?php if ( isset($customRegistration['url']) && isset($customRegistration['title']) ) { 
+                $regTarget = ( isset($customRegistration['target']) && $customRegistration['target'] ) ? $customRegistration['target'] : '_self';
+              ?>
+              <li><span class="yellow"><a href="<?php echo $customRegistration['url'] ?>" class="custom-registration-link" target="<?php echo $regTarget ?>"><?php echo $customRegistration['title'] ?></a></span></li>
+            <?php } else { ?>
+              <?php if( isset($registrationLink['url']) ){ ?>
+	             <li><span class="yellow"><a href="<?php echo $registrationLink['url'] ?>" class="global-registration-link" target="_blank">Register</a></span></li>
+              <?php } ?>
+            <?php } ?>
 	        <?php } ?>
           <?php if( have_rows('past_results') ) { ?>  
             <li><span class="gray"><a href="#" data-tab="#pastresults" class="tablink">Past Results</a></span></li>

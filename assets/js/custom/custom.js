@@ -171,7 +171,6 @@ jQuery(document).ready(function($){
   }
 
 
-
   // if( $('.flexible-content-wrapper').length==0 ) {
   //   if( !$('body').hasClass('homepage') ) {
   //     const lenis = new Lenis({

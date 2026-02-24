@@ -3041,3 +3041,41 @@ body.subpage.no-banner #content {
   padding-top: 150px;
 }
 
+/* Scroll Pinning - Video section */
+.site:has(.sticky-video) {
+  overflow-x: unset;
+  overflow-y: unset;
+  .flexible-content-wrapper:has(.sticky-video) {
+    overflow: visible!important;
+  }
+  [data-group="fullwidth_video"]:has(.sticky-video) {
+    height: 450vh; /* This controls how "long" the pin lasts */
+    position: relative;
+    background-color: #000;
+  }
+  .sticky-video video {
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+  }
+  .videoContainer,
+  .videoContainer div.video {
+    position: absolute!important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .sticky-video {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh; /* Occupies full screen while pinned */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+

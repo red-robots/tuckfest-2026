@@ -28,6 +28,29 @@
 
   </footer><!-- #colophon -->
 </div><!-- #page -->
+<script>
+if( document.querySelector('[data-group="fullwidth_video"]').length ) {
+  const container = document.querySelector('repeatable--fullwidth_video');
+  const video = document.querySelector('.sticky-video video');
+
+  window.addEventListener('scroll', () => {
+    // 1. Calculate how far down the container we have scrolled
+    const distanceFromTop = window.scrollY - container.offsetTop;
+    const totalScrollableHeight = container.offsetHeight - window.innerHeight;
+    
+    // 2. Turn that into a percentage (0 to 1)
+    let scrollFraction = distanceFromTop / totalScrollableHeight;
+    
+    // 3. Constrain the fraction between 0 and 1
+    scrollFraction = Math.max(0, Math.min(1, scrollFraction));
+
+    // 4. Update video playback (optional: remove if you just want it to play normally)
+    if (video.duration) {
+      video.currentTime = video.duration * scrollFraction;
+    }
+  });
+}
+</script>
 <?php wp_footer(); ?>
 </body>
 </html>

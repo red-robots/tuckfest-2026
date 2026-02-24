@@ -1,5 +1,40 @@
 "use strict";
 
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+(function () {
+  if (typeof tinymce !== 'undefined' && tinymce.PluginManager && _typeof(tinymce.PluginManager) === 'object') {
+    tinymce.PluginManager.add('ctabutton', function (editor, url) {
+      //console.log(url);
+      var parts = url.split('assets');
+      var themeURL = parts[0]; // Add Button to Visual Editor Toolbar
+
+      editor.addButton('edbutton1', {
+        title: 'Button Dark Orange',
+        cmd: 'edbutton1',
+        image: themeURL + 'assets/images/custom-button.png'
+      }); // Add Command when Button Clicked
+
+      editor.addCommand('edbutton1', function () {
+        var selected_text = editor.selection.getContent();
+
+        if (selected_text.length === 0) {
+          alert('Please select some text.');
+          return;
+        }
+
+        var open_column = '<span class="custom-button-element"><a data-mce-href="#" href="#"  data-mce-selected="inline-boundary" class="button-yellow">';
+        var close_column = '</a></span>';
+        var return_text = '';
+        return_text = open_column + selected_text + close_column;
+        editor.execCommand('mceReplaceContent', false, return_text);
+        return;
+      });
+    });
+  }
+})();
+"use strict";
+
 /**
  *	Custom jQuery Scripts
  *	Date Modified: 02.07.2026
@@ -597,34 +632,3 @@ jQuery(document).ready(function ($) {
     });
   });
 });
-"use strict";
-
-(function () {
-  tinymce.PluginManager.add('ctabutton', function (editor, url) {
-    //console.log(url);
-    var parts = url.split('assets');
-    var themeURL = parts[0]; // Add Button to Visual Editor Toolbar
-
-    editor.addButton('edbutton1', {
-      title: 'Button Dark Orange',
-      cmd: 'edbutton1',
-      image: themeURL + 'assets/images/custom-button.png'
-    }); // Add Command when Button Clicked
-
-    editor.addCommand('edbutton1', function () {
-      var selected_text = editor.selection.getContent();
-
-      if (selected_text.length === 0) {
-        alert('Please select some text.');
-        return;
-      }
-
-      var open_column = '<span class="custom-button-element"><a data-mce-href="#" href="#"  data-mce-selected="inline-boundary" class="button-yellow">';
-      var close_column = '</a></span>';
-      var return_text = '';
-      return_text = open_column + selected_text + close_column;
-      editor.execCommand('mceReplaceContent', false, return_text);
-      return;
-    });
-  });
-})();

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Random Flip Gallery</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+  margin: 0;
+  background: #111;
+  color: white;
+  font-family: sans-serif;
+}
+
+.image-section {
+  padding: 60px 20px;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.grid-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: opacity 0.5s ease;
+}
+</style>
+</head>
+<body>
+<div style="height:100vh; display:flex; align-items:center; justify-content:center;">
+  <h1>Scroll Down 👇</h1>
+</div>
+
+<section class="image-section">
+  <div class="image-grid">
+    <img class="grid-image" src="https://picsum.photos/400/300?random=1">
+    <img class="grid-image" src="https://picsum.photos/400/300?random=2">
+    <img class="grid-image" src="https://picsum.photos/400/300?random=3">
+    <img class="grid-image" src="https://picsum.photos/400/300?random=4">
+    <img class="grid-image" src="https://picsum.photos/400/300?random=5">
+    <img class="grid-image" src="https://picsum.photos/400/300?random=6">
+  </div>
+</section>
+
+<div style="height:100vh;"></div>
+
+<script>
+const images = document.querySelectorAll('.grid-image');
+const section = document.querySelector('.image-section');
+
+let counter = 7;
+let hasLeftView = true; // ensures it runs first time
+
+function changeOneImage() {
+  const randomIndex = Math.floor(Math.random() * images.length);
+  const img = images[randomIndex];
+
+  img.style.opacity = 0;
+
+  setTimeout(() => {
+    img.src = `https://picsum.photos/400/300?random=${counter++}`;
+    img.style.opacity = 1;
+  }, 500);
+}
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+
+    if (entry.isIntersecting && hasLeftView) {
+      changeOneImage();
+      hasLeftView = false; // prevent repeated trigger
+    }
+
+    if (!entry.isIntersecting) {
+      hasLeftView = true; // reset when user leaves
+    }
+
+  });
+}, {
+  threshold: 0.5
+});
+
+observer.observe(section);
+</script>
+</body>
+</html>

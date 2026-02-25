@@ -1424,6 +1424,9 @@ body {
           left: 0;
           object-fit: cover;
           object-position: center;
+          &.image-mobile {
+            display: none;
+          }
         }
       }
       @media screen and (max-width:1024px) {
@@ -1464,6 +1467,14 @@ body {
           left: 0;
           object-fit: cover;
           object-position: center;
+        }
+        &:has(.image-desktop):has(.image-mobile) {
+          img.image-desktop {
+            display: none!important;
+          }
+          img.image-mobile {
+            display: block;
+          }
         }
       }
     }

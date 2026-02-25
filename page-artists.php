@@ -39,22 +39,91 @@ $soon = ( isset($comingSoon[0]) ) ? $comingSoon[0] : '';
       <?php endif; ?>
       <?php //} ?>
 		<?php endwhile; ?>
+
+    <?php 
+    $past_lineups_title = get_field('past_lineups_title');
+    $past_lineups = get_field('past_lineups');
+    if($past_lineups_title || $past_lineups) { ?>  
     <section class="entry-content ">
-         <?php //include( locate_template('parts/mc-signup.php') ); ?>
-         <?php 
-         $past_lineups_title = get_field('past_lineups_title');
-          $past_lineups = get_field('past_lineups'); 
-          ?>  
+        <?php //include( locate_template('parts/mc-signup.php') ); ?>
+        <?php if($past_lineups_title) { ?>  
         <header class="entry-title ">
           <h1><?php echo $past_lineups_title; ?></h1>
         </header>
-
-      <div class="wrapper">
-        <?php echo $past_lineups; ?>
-      </div>
+        <?php } ?>
+        <?php if($past_lineups) { ?>  
+        <div class="wrapper">
+          <div class="accordion-lineups">
+            <?php echo $past_lineups; ?>
+          </div>
+        </div>
+        <?php } ?>
     </section>
+    <?php } ?>
 	</main>
 </div>
-<?php
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const accordionHeaders = document.querySelectorAll("h2");
+  if( accordionHeaders.length ) {
+    accordionHeaders.forEach((header, index) => {
+      const content = header.nextElementSibling;
+      if (!content) return;
 
-get_footer();
+      // Create wrapper
+      const wrapper = document.createElement("div");
+      wrapper.className = "accordion-item";
+
+      header.parentNode.insertBefore(wrapper, header);
+      wrapper.appendChild(header);
+      wrapper.appendChild(content);
+
+      // Setup ARIA
+      const contentId = "accordion-content-" + index;
+      content.id = contentId;
+
+      header.setAttribute("role", "button");
+      header.setAttribute("aria-expanded", "false");
+      header.setAttribute("aria-controls", contentId);
+      header.setAttribute("tabindex", "0");
+
+      content.classList.add("accordion-content");
+
+      function closeAll() {
+        document.querySelectorAll(".accordion-content").forEach(item => {
+          item.style.maxHeight = null;
+          item.classList.remove("active");
+        });
+
+        document.querySelectorAll("h2[aria-expanded]").forEach(h => {
+          h.setAttribute("aria-expanded", "false");
+        });
+      }
+
+      function toggle() {
+        const isOpen = header.getAttribute("aria-expanded") === "true";
+
+        closeAll();
+
+        if (!isOpen) {
+          content.classList.add("active");
+          content.style.maxHeight = content.scrollHeight + "px";
+          header.setAttribute("aria-expanded", "true");
+        }
+      }
+
+      header.addEventListener("click", toggle);
+
+      // Keyboard accessibility (Enter + Space)
+      header.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          toggle();
+        }
+      });
+    });
+  }
+});
+</script>
+<?php get_footer(); ?>
+

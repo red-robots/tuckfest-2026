@@ -3079,3 +3079,80 @@ body.subpage.no-banner #content {
   }
 }
 
+.accordion-lineups {
+  .accordion-item {
+    // border: 1px solid rgba(255,255,255,.75);
+    border: 1px solid #FFF;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    position: relative;
+    transition: all ease .3s;
+    &:before {
+      content:"";
+      display: block;
+      width: 10px;
+      height: 10px;
+      border-right: 1px solid #FFF;
+      border-bottom: 1px solid #FFF;
+      position: absolute;
+      top: 25px;
+      right: 20px;
+      transform: rotate(45deg);
+      transition: transform ease .3s;
+    }
+    &:hover {
+      background-color: rgba(255,255,255,.15);
+    }
+    p {
+      margin-bottom: 0;
+      padding: 0 0!important;
+    }
+    p:last-child {
+      margin-bottom: 0;
+    }
+    h2 {
+      cursor: pointer;
+      margin: 0 0;
+      padding: 0 0;
+    }
+    &:has(.active) {
+      background-color: #FFF;
+      color: #000;
+      &:before {
+        border-right-color: #000;
+        border-bottom-color: #000;
+      }
+      h2,p,li {
+        color: #000;
+      }
+      &:before {
+        transform: rotate(225deg);
+        transform-origin: center;
+      }
+      h2 {
+        margin-bottom: 10px;
+      }
+      p {
+        margin-bottom: 15px;
+      }
+      p:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .accordion-content {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.35s ease, padding 0.3s ease;
+    padding: 0;
+    &.active {
+      overflow: visible;
+    }
+  }
+
+  .accordion-content.active {
+    padding: 10px 0;
+  }
+}

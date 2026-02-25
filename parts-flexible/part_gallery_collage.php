@@ -9,6 +9,7 @@ if($cards) { ?>
     <div class="collageImages">
     <?php foreach ($gallery_images as $c) { 
       $image = $c['image'];
+      $image_mobile = $c['image_mobile'];
       $btn = $c['clickthroughurl'];
       $btnLink = (isset($btn['url']) && $btn['url']) ? $btn['url'] : '';
       $btnTarget = (isset($btn['target']) && $btn['target']) ? ' target="'.$btn['target'].'"' : '';
@@ -19,10 +20,16 @@ if($cards) { ?>
           <?php if ($image) { ?>
             <?php if ($btnLink) { ?>
             <a class="imageLink" href="<?php echo $btnLink ?>"<?php echo $btnTarget ?>>
-              <img src="<?php echo $image['url'] ?>" alt="" class="image">
+              <img src="<?php echo $image['url'] ?>" alt="" class="image image-desktop">
+              <?php if ($image_mobile) { ?>
+              <img src="<?php echo $image_mobile['url'] ?>" alt="" class="image image-mobile">
+              <?php } ?>
             </a>
             <?php } else { ?>
-              <img src="<?php echo $image['url'] ?>" alt="" class="image">
+              <img src="<?php echo $image['url'] ?>" alt="" class="image image-desktop">
+              <?php if ($image_mobile) { ?>
+              <img src="<?php echo $image_mobile['url'] ?>" alt="" class="image image-mobile">
+              <?php } ?>
             <?php } ?>
           <?php } ?>
         </figure>

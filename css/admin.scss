@@ -1,0 +1,19 @@
+[data-name="certifications"] .acf-editor-wrap .mce-edit-area.mce-container.mce-panel iframe {
+  height: 200px!important;
+}
+body.toplevel_page_acf-options .acf-field-repeater[data-name="social_media_links_yellow"] [data-name="icon"] .image-wrap img,
+body.toplevel_page_acf-options .acf-field-repeater[data-name="social_media_links"] [data-name="icon"] .image-wrap img {
+  max-height: 50px!important;
+}
+.acf-field-true-false[data-name="hero_text_effect"] {
+  padding-bottom: 5px;
+  .acf-input {
+    display: inline-block;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+  }
+  .acf-label {
+    padding-left: 22px;
+  }
+}

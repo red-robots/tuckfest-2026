@@ -19,8 +19,8 @@ if($video_type=='embed') {
 
 $repeatableClass = 'repeatable--'.get_row_layout().' repeatable--'.get_row_layout().$ctr;
 if($video_thumbnail && $has_video) { ?>
-<section data-group="<?php echo get_row_layout() ?>" class="repeatable <?php echo $repeatableClass ?>">
-
+<div class="progress-bar"></div>
+<section data-group="<?php echo get_row_layout() ?>" class="pinned-section repeatable <?php echo $repeatableClass ?>">
   <div class="sticky-video">
     <?php if ($video_type=='embed' && $video_url) { 
       $youtubeId = getYouTubeId($video_url);

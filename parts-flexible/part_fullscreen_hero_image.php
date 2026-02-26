@@ -3,6 +3,8 @@ $bgImage = get_sub_field('background_image');
 $bgImageMobile = get_sub_field('background_image_mobile');
 $middleImage = get_sub_field('middle_image');
 $heroText = get_sub_field('hero_text');
+$text_effect = get_sub_field('hero_text_effect');
+$text_effect_class = ($text_effect) ? ' has-text-effect':'';
 $bottomInfo = get_sub_field('bottom_information');
 $leftText = ( isset($bottomInfo['left_text']) ) ? $bottomInfo['left_text'] : '';
 $centerText = ( isset($bottomInfo['center_text']) ) ? $bottomInfo['center_text'] : '';
@@ -22,7 +24,7 @@ if($bgImage) { ?>
         <figure><img src="<?php echo $middleImage['url'] ?>" alt="<?php echo $middleImage['title'] ?>"></figure>
       <?php } ?>
       <?php if ($heroText) { ?>
-      <div class="heroText"><?php echo $heroText ?></div>
+      <div class="heroText"><span class="str<?php echo $text_effect_class ?>"><?php echo $heroText ?></span></div>
       <?php } ?>
     </div>
   </div> 

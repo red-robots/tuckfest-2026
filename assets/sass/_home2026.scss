@@ -73,6 +73,7 @@
     background-color: rgba(0,0,0,.75);
     animation-name: fadeInDown;
     z-index: 999999;
+    height: 88px;
     &:before {
       opacity: 0;
     }
@@ -112,7 +113,7 @@
     width: 50px;
     height: 50px;
     position: absolute;
-    top: -10px;
+    top: -12px;
     right: -15px;
     background-image: url('assets/images/menu-toggle.png');
     background-size: 75%;
@@ -426,6 +427,9 @@ body {
     font-family: $font_primary;
     height: 800px;
     @media screen and (min-height:769px) {
+      height: 100vh;
+    }
+    @media screen and (max-width:480px) {
       height: 100vh;
     }
     
@@ -1661,36 +1665,28 @@ body {
     figure {
       animation-duration: 1.5s;
       animation-fill-mode: both;
-      animation-name: backInDown;
+      //animation-name: backInDown;
+      animation-name: fadeInUp;
     }
   }
-  .heroText {
-    animation-duration: 1s;
-    animation-fill-mode: both;
-    animation-name: fadeInUp;
-    animation-delay: 1.4s;
+}
+
+.has-text-effect {
+  border-right: 3px solid white;
+  display: inline-block;
+  @media screen and (min-width:1024px) {
+    white-space: nowrap;
+    overflow: hidden;
   }
 }
+.has-text-effect.cursor-blink {
+  animation: blink 0.7s step-end infinite;
+}
+
 
 /* Animations */
-@keyframes logoReveal {
-  from {
-    transform: translate3d(-100%, 0, 0);
-  }
-  to {
-    transform: translate3d(100%,0,0);
-  }
-}
-
-@keyframes taglineReveal {
-  from {
-    opacity: 0;
-    letter-spacing: 1em;
-  }
-  to {
-    opacity: 1;
-    letter-spacing: 0.11em;
-  }
+@keyframes blink {
+  50% { border-color: transparent; }
 }
 
 @keyframes pulse {
@@ -1732,10 +1728,18 @@ body {
     padding-top: 0!important;
   }
   body:has(.flexible-content-wrapper) .site-header.site-header-new {
-    padding-top: 45px;
+    &.sticky {
+      padding-top: 29.7px;
+      padding-bottom: 30px;
+    }
   }
-  body.logged-in.admin-bar:has(.flexible-content-wrapper) .site-header.site-header-new {
-    padding-top: 65px;
+  body.logged-in.admin-bar {
+    .site-header.site-header-new {
+      top: 32px;
+    }
+    .progress-bar {
+      top: 120px;
+    }
   }
 }
 

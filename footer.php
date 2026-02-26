@@ -28,28 +28,96 @@
 
   </footer><!-- #colophon -->
 </div><!-- #page -->
+
 <script>
-if( document.querySelector('[data-group="fullwidth_video"]').length ) {
-  const container = document.querySelector('repeatable--fullwidth_video');
+if (document.querySelector('[data-group="fullwidth_video"]')) {
+  const container = document.querySelector('[data-group="fullwidth_video"]');
   const video = document.querySelector('.sticky-video video');
 
+  // Create Progress Bar
+  const progressBar = document.querySelector(".progress-bar");  
+  // progressBar.style.position = 'fixed';
+  // progressBar.style.top = '0';
+  // progressBar.style.left = '0';
+  // progressBar.style.height = '4px';
+  // progressBar.style.width = '0%';
+  // progressBar.style.background = '#00ffcc';
+  // progressBar.style.zIndex = '999999';
+  // progressBar.style.transition = 'width 0.1s linear';
+
+  document.body.appendChild(progressBar);
+
   window.addEventListener('scroll', () => {
-    // 1. Calculate how far down the container we have scrolled
+
     const distanceFromTop = window.scrollY - container.offsetTop;
     const totalScrollableHeight = container.offsetHeight - window.innerHeight;
-    
-    // 2. Turn that into a percentage (0 to 1)
+
     let scrollFraction = distanceFromTop / totalScrollableHeight;
-    
-    // 3. Constrain the fraction between 0 and 1
+
     scrollFraction = Math.max(0, Math.min(1, scrollFraction));
 
-    // 4. Update video playback (optional: remove if you just want it to play normally)
-    if (video.duration) {
+    // Update video playback
+    if (video && video.duration) {
       video.currentTime = video.duration * scrollFraction;
     }
+
+    // Update progress bar
+    progressBar.style.width = (scrollFraction * 100) + '%';
+
   });
+
+
+  document.addEventListener("DOMContentLoaded", function () {  
+    const pinnedSection = document.querySelector(".pinned-section");  
+    const progressBar = document.querySelector(".progress-bar");  
+
+    function checkVisibility() {
+      const rect = pinnedSection.getBoundingClientRect();
+
+      const completelyOut =
+        rect.bottom <= 0 || rect.top >= window.innerHeight;
+
+      if (completelyOut) {
+        progressBar.classList.add("hidden");
+      } else {
+        progressBar.classList.remove("hidden");
+      }
+    }
+    window.addEventListener("scroll", checkVisibility);
+    window.addEventListener("resize", checkVisibility);
+    checkVisibility();
+  });
+
 }
+
+//Type Out effect
+document.addEventListener("DOMContentLoaded", function () {
+  const elements = document.querySelectorAll(".has-text-effect");
+  elements.forEach(el => {
+    const speed = parseInt(el.dataset.speed) || 35;
+    const text = el.textContent.trim();
+    el.textContent = "";
+    el.classList.add("cursor-blink");
+    let index = 0;
+
+    function type() {
+      if (index < text.length) {
+        el.textContent += text.charAt(index);
+        index++;
+        setTimeout(type, speed);
+      } else {
+        // Remove cursor completely when finished
+        el.classList.remove("cursor-blink");
+        el.style.borderRight = "none";
+      }
+    }
+
+    setTimeout(function(){
+      type();
+    },800);
+    
+  });
+});
 </script>
 <?php wp_footer(); ?>
 </body>

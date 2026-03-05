@@ -57,9 +57,9 @@ if (document.querySelector('[data-group="fullwidth_video"]')) {
     scrollFraction = Math.max(0, Math.min(1, scrollFraction));
 
     // Update video playback
-    if (video && video.duration) {
-      video.currentTime = video.duration * scrollFraction;
-    }
+    // if (video && video.duration) {
+    //   video.currentTime = video.duration * scrollFraction;
+    // }
 
     // Update progress bar
     progressBar.style.width = (scrollFraction * 100) + '%';

@@ -1912,6 +1912,28 @@ span.gray, span.red, span.orange {
       filter: brightness(0) invert(1);
     }
   }
+  .footPartners {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .footer-partners {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0 0;
+    padding: 0 0;
+    list-style: none;
+    gap: 2.5rem;
+    a {
+      display: inline-block;
+    }
+    img {
+      width: auto;
+      height: 32px;
+    }
+  }
 }
 
 #footer-navigation {

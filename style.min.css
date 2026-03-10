@@ -1724,6 +1724,10 @@ span.gray,span.red,span.orange{width:100%}
 .site-footer #footlogo{margin-bottom:10px}
 .site-footer #footlogo a,.site-footer #footlogo img{display:inline-block}
 .site-footer #footlogo img{width:180px;height:auto;-webkit-filter:brightness(0) invert(1);filter:brightness(0) invert(1)}
+.site-footer .footPartners{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
+.site-footer .footer-partners{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;margin:20px 0 0;padding:0;list-style:none;gap:2.5rem}
+.site-footer .footer-partners a{display:inline-block}
+.site-footer .footer-partners img{width:auto;height:32px}
 #footer-navigation ul.menu ul{display:none}
 #footer-navigation ul.menu{display:inline-block;margin:0;padding:0;list-style:none;text-align:center}
 #footer-navigation ul.menu>li{display:inline-block}

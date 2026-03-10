@@ -1,12 +1,13 @@
   </div><!-- #content -->
   
   <?php 
+  $footer_sponsors = get_field("footer_sponsors","option");
   $footer_logo = get_field("footer_logo","option");
   $footer_logo_website = get_field("footer_logo_website","option");
   ?>
   <footer id="colophon" class="Footer site-footer" role="contentinfo">
     <div class="footerInner">
-      <div class="flexwrap">
+      <div class="footInfo flexwrap">
         <?php if ($footer_logo) { ?>
         <div class="footcol left">
           <div id="footlogo">
@@ -24,6 +25,28 @@
           <?php include( locate_template('parts/social-media-links.php') ); ?>
         </div>
       </div>
+
+      <?php if ($footer_sponsors) { ?>
+      <div class="footPartners">
+        <ul class="footer-partners">
+        <?php while( have_rows('footer_sponsors', 'option') ) : the_row();
+          $icon = get_sub_field('icon', 'option');
+          $link = get_sub_field('link', 'option');
+          if($icon) { ?>
+          <li>
+            <?php if ($link) { ?>
+            <a href="<?php echo $link; ?>" target="_blank">
+              <img src="<?php echo $icon['url']; ?>">
+            </a>
+            <?php } else { ?>
+            <img src="<?php echo $icon['url']; ?>">
+            <?php } ?>
+          </li>
+          <?php } ?>
+        <?php endwhile; ?>
+        </ul>
+      </div>
+      <?php } ?>
     </div>
 
   </footer><!-- #colophon -->

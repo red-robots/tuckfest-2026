@@ -1,7 +1,8 @@
 <?php
 $title = get_the_title();
 $text = get_the_content();
-// $buttons = get_sub_field('buttons');
+//$buttons = get_sub_field('buttons');
+$buttons = false;
 $image = get_field('image');
 if( $image !== '' ) {
 	$imgCheck = 'yes';

@@ -1632,6 +1632,11 @@ a:hover{color:#ff3}
 #pagination span,#pagination a{display:inline-block;text-decoration:none;float:left;font-size:15px;line-height:1;padding:4px 7px;margin:5px 4px}
 #pagination span{color:#fff}
 body.page-template-page-athletes .content-block{-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+body.page-template-page-athletes .entry-title h1{margin:10px 0}
+body.page-template-page-athletes ul.terms a{display:inline-block;position:relative}
+body.page-template-page-athletes ul.terms a span{display:inline-block;position:relative}
+body.page-template-page-athletes ul.terms a span:after{content:"";display:block;width:0;border-bottom:1px solid #ff0;-webkit-transition:all ease .3s;transition:all ease .3s;position:absolute;bottom:0;right:0}
+body.page-template-page-athletes ul.terms a:hover span:after,body.page-template-page-athletes ul.terms a:focus span:after{width:100%;right:unset;left:0}
 .repeatable-content-blocks{margin-top:50px;margin-bottom:80px;width:100%;float:left}
 .repeatable-content-blocks h3.notfound{font-size:1.2rem;font-weight:normal;margin:0;color:#407078}
 .repeatable-content-blocks .wrapper{max-width:1300px;width:100%}

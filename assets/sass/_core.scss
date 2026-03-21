@@ -1265,6 +1265,36 @@ body.page-template-page-athletes {
   .content-block {
     align-items: center;
   }
+  .entry-title h1 {
+    margin: 10px 0;
+  }
+  ul.terms {
+    a {
+      display: inline-block;
+      position: relative;
+      span {
+        display: inline-block;
+        position: relative;
+        &:after {
+          content:"";
+          display: block;
+          width: 0;
+          border-bottom: 1px solid $yellow;
+          transition: all ease .3s;
+          position: absolute;
+          bottom: 0;
+          right: 0;
+        }
+      }
+      &:hover, &:focus {
+        span:after {
+          width: 100%;
+          right: unset;
+          left: 0;
+        }
+      }
+    }
+  }
 }
 /* REPEATABLE BLOCKS */
 .repeatable-content-blocks {

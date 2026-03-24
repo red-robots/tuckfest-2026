@@ -2100,8 +2100,8 @@ body.logged-in.admin-bar .site-header.site-header-new #site-navigation .menu-clo
 }@media(min-width:667px){nav.mobilemenu{padding:120px 90px 70px 90px}
 }@media screen and (min-width:783px){html:has(.flexible-content-wrapper){margin-top:0 !important;padding-top:0 !important}
 body:has(.flexible-content-wrapper) .site-header.site-header-new.sticky{padding-top:29.7px;padding-bottom:30px}
-body.logged-in.admin-bar .site-header.site-header-new{top:32px}
-body.logged-in.admin-bar .progress-bar{top:120px}
+body.logged-in.admin-bar:not(.subpage) .site-header.site-header-new{top:32px}
+body.logged-in.admin-bar:not(.subpage) .progress-bar{top:120px}
 }@media(min-width:820px){body{font-size:17px}
 .home-buttons a{font-size:22px;width:auto;margin:0}
 .home-buttons .button{width:33.33%}

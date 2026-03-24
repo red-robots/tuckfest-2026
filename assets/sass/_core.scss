@@ -4973,7 +4973,7 @@ body {
       padding-bottom: 30px;
     }
   }
-  body.logged-in.admin-bar {
+  body.logged-in.admin-bar:not(.subpage) {
     .site-header.site-header-new {
       top: 32px;
     }

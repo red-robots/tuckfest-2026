@@ -73,13 +73,14 @@ if($soon !== 'soon') :?>
       
       
       <div class="repeatable-content-blocks">
-        <div class="wrapper">
+        <div id="original-post-listing" class="wrapper">
           <?php while ($wp_query->have_posts()) : $wp_query->the_post(); $i++; ?>
             <?php if( get_the_ID() !== 2131 ) { // if not the duplicate Teva page... ?>
               <?php include( locate_template('inc/loop-post.php', false, false)); ?>
             <?php } ?>
           <?php endwhile; ?>
         </div>
+        <div id="filtered-post-listing" class="wrapper"><!-- filtered items go here --></div>
       </div>
     <?php } ?>
 

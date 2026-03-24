@@ -586,13 +586,26 @@ $('.question').click(function() {
     //let uniqueItems = (selectedFilters.length) ? unique(selectedFilters) : '';
 
     let selectedList = (selectedFilters.length) ? '.'+selectedFilters.join('.') : '';
-    $('.repeatable-content-blocks .content-block').not(selectedList).hide();
-    if( $('.repeatable-content-blocks .content-block'+selectedList).length ) {
-      $('.repeatable-content-blocks .content-block').hide().removeClass('found');
-      $('.repeatable-content-blocks .content-block'+selectedList).show().addClass('found');
+    if(selectedList) {
+      if( $('#original-post-listing .content-block'+selectedList).length ) {
+        $('#filtered-post-listing').html("");
+        $('#original-post-listing .content-block'+selectedList).clone().appendTo('#filtered-post-listing');
+        $('#original-post-listing').hide().attr('aria-hidden',true);
+      }
     } else {
-      $('.repeatable-content-blocks .content-block').hide().removeClass('found');
+      $('#filtered-post-listing').html("");
+      $('#original-post-listing').show().removeAttr('aria-hidden');
     }
+    
+    
+    // $('.repeatable-content-blocks .content-block').not(selectedList).hide();
+    // if( $('.repeatable-content-blocks .content-block'+selectedList).length ) {
+    //   $('.repeatable-content-blocks .content-block').hide().removeClass('found');
+    //   $('.repeatable-content-blocks .content-block'+selectedList).show().addClass('found');
+    // } else {
+    //   $('.repeatable-content-blocks .content-block').hide().removeClass('found');
+    // }
+
     //checkFoundItems();
   });
 

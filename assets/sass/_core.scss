@@ -1908,6 +1908,26 @@ span.gray, span.red, span.orange {
   margin-bottom: 40px;
 }
 
+.sponsors--logos {
+  width: 100%;
+  float: left;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0 10px;
+  padding: 0 0;
+  list-style: none;
+  gap: 2.5rem;
+  .sponsor-logo, a {
+    display: inline-block;
+  }
+  img {
+    width: auto;
+    height: 32px;
+  }
+}
+
 /* FOOTER */
 .site-footer {
   width: 100%;

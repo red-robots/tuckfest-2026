@@ -1723,6 +1723,9 @@ span.gray,span.red,span.orange{width:100%}
 .bottom-dws-blurb a.ctaBtn{display:inline-block;text-decoration:none;color:#fff;text-transform:uppercase;padding:10px 20px 8px;margin:10px 10px}
 .bottom-dws-blurb a.ctaBtn:first-child{margin-left:0}
 .repeatable-content-blocks.dws{margin-bottom:40px}
+.sponsors--logos{width:100%;float:left;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;margin:20px 0 10px;padding:0;list-style:none;gap:2.5rem}
+.sponsors--logos .sponsor-logo,.sponsors--logos a{display:inline-block}
+.sponsors--logos img{width:auto;height:32px}
 .site-footer{width:100%;float:left;background:#000}
 .site-footer .wrapper{padding:30px 20px 30px}
 .site-footer .flexwrap{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}

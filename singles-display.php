@@ -77,6 +77,26 @@ $posttype = get_post_type();
         </div> 
         <?php } ?>
 
+        <?php  
+          $sponsor_logos = ['sponsor_logo','sponsor_logo_2'];
+          $sponsor_logos_links = ['sponsor_link','sponsor_link_2'];
+        ?>
+        <div class="sponsors--logos">
+        <?php foreach($sponsor_logos as $k=>$sponsor) {
+          $sponsorLogo = get_field($sponsor);
+          $sponsorLink = get_field($sponsor_logos_links[$k]);
+          if($sponsorLogo) { ?>
+            <?php if ($sponsorLink) { ?>
+            <a href="<?php echo $sponsorLink ?>" target="_blank" class="sponsor-logo">
+              <img src="<?php echo $sponsorLogo ?>" alt="">
+            </a>  
+            <?php } else { ?>
+            <span class="sponsor-logo"><img src="<?php echo $sponsorLogo ?>" alt=""></span>
+            <?php } ?>
+          <?php }
+        } ?>
+        </div>
+
         <?php if($course_iframe) { ?>
           <section class="coursemap">
             <?php echo $course_iframe; ?>

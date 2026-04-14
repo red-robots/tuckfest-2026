@@ -1,4 +1,4 @@
-<?php
+<?php 
 // NEW
 	$classes = '';
 	$post_id = get_the_ID();
@@ -58,9 +58,9 @@
 			//NEW
 
 $queried_object = get_queried_object();
-$i++;
+$i++; 
 if( $i == 1 ) {
-
+	
 	// echo '<h2>'.$queried_object->name.'</h2>';
 }
 
@@ -75,6 +75,10 @@ $satEndTime = get_field('saturday_time_p_end');
 $sunTime = get_field('sunday_time_p');
 $sunEndTime = get_field('sunday_time_p_end');
 
+
+// echo '<pre>';
+// print_r($thurTime);
+// echo '</pre>';
 if( $queried_object->slug == 'thursday' ) {
 	$pp = get_field('thursday_schedule', 'option');
 	$startTime = $thurTime;
@@ -98,9 +102,6 @@ if( $queried_object->slug == 'thursday' ) {
 	$regStartTwo = get_field('friday_start_2', 'option');
 	$regEndTwo = get_field('friday_end_2', 'option');
 	$actTime = '10:00 am - 7:00 pm';
-
-	$az = get_field('friday_schedule_az', 'option');
-	$az_time = get_field('friday_schedule_az_time', 'option');
 } elseif( $queried_object->slug == 'saturday' ) {
 	$pp = get_field('saturday_schedule', 'option');
 	$vv = get_field('saturday_schedule_vv', 'option');
@@ -114,9 +115,6 @@ if( $queried_object->slug == 'thursday' ) {
 	$regEndTwo = get_field('saturday_end_2', 'option');
 	$regLink = get_field('saturday_time_link', 'option');
 	$actTime = '10:00 am - 7:00 pm';
-
-	$az = get_field('saturday_schedule_az', 'option');
-	$az_time = get_field('saturday_schedule_az_time', 'option');
 } elseif( $queried_object->slug == 'sunday' ) {
 	$pp = get_field('sunday_schedule', 'option');
 	$vv = get_field('sunday_schedule_vv', 'option');
@@ -130,9 +128,6 @@ if( $queried_object->slug == 'thursday' ) {
 	$regEndTwo = get_field('sunday_end_2', 'option');
 	$regLink = get_field('sunday_time_link', 'option');
 	$actTime = '10:00 am - 7:00 pm';
-
-	$az = get_field('sunday_schedule_az', 'option');
-	$az_time = get_field('sunday_schedule_az_time', 'option');
 }
 
 $theID = get_the_ID();
@@ -159,7 +154,7 @@ if( $tax != '' ) {
 	if($terms){$term = $terms[0]->slug;}
 
 	$hash = sanitize_title_with_dashes(get_the_title());
-
+	
 	// echo '<pre>';
 	// print_r($terms);
 	// echo '</pre>';
@@ -188,65 +183,54 @@ if( $postType == 'music' ) {
 } else {
 	$url = get_the_permalink();
 	// $url = get_bloginfo('url').'/'.$taxSlug.'/'.$term.'/#'.$hash;
-}
+} 
 
 $daySlug = (isset($day) && $day) ? ' '.$day : '';
-if( $i == 1 ) { ?>
-	<?php if( $pp && $pp_time ){ ?>
-	<li class="item <?php echo $daySlug ?> sched-act">
-		<?php if($regLink) { ?>
+if( $i == 1 ) {
+
+?>
+	<li class="item<?php echo $daySlug ?>">
 		<a href="<?php echo $regLink; ?>">
-		<?php } else { ?>
-		<a href="javascript:void(0)" role="presentation">
-		<?php } ?>
-				<div class="title first axis"><?php echo $pp; ?></div>
+			<?php if( $pp ){ ?>
+				<div class="title first axis">
+					<?php echo $pp; ?>
+				</div>
 				<div class="time"><?php echo $pp_time; ?></div>
+			<?php } ?>
 			<!-- <div class="time">
-				<?php
+				<?php 
 				if( $regStart && $regEnd ) {
-					echo $regStart.' - '.$regEnd;
+					echo $regStart.' - '.$regEnd;  
 				}
 				if( $regStartTwo && $regEndTwo ) {
-					echo '<br>' . $regStartTwo.' - '.$regEndTwo;
+					echo '<br>' . $regStartTwo.' - '.$regEndTwo;  
 				}
+
 				?>
 			</div> -->
 		</a>
 	</li>
-	<?php } ?>
-
-	<?php if( $az && $az_time ){ ?>
-	<li class="item <?php echo $daySlug ?> sched-act">
-		<a href="javascript:void(0)" role="presentation">
-			<div class="title first axis"><?php echo $az; ?></div>
-			<div class="time"><?php echo $az_time; ?></div>
-		</a>
-	</li>
-	<?php } ?>
-
-	<?php if( $vv && $vv_time ){ ?>
-	<li class="item <?php echo $daySlug ?> sched-act">
-		<a href="javascript:void(0)" role="presentation">
-			<div class="title first axis"><?php echo $vv; ?></div>
+	<li class="item">
+		<a href="" >
+			<div class="title first axis">
+				<?php echo $vv; ?>
+			</div>
 			<div class="time"><?php echo $vv_time; ?></div>
 		</a>
 	</li>
-	<?php } ?>
-
-	<?php if( $actTime ){ ?>
-	<li class="item <?php echo $daySlug ?> sched-act">
+	<li class="item">
 		<a href="<?php echo $wwAct; ?>" target="_blank">
 			<div class="title first axis">
 				Whitewater Center Activities
 			</div>
-			<div class="time"><?php echo $actTime; ?></div>
+			<div class="time">
+				<?php echo $actTime; ?>
+			</div>
 		</a>
 	</li>
-	<?php } ?>
-
 <?php } ?>
 
-<?php
+<?php 
  $highlight = get_field('highlight_on_schedule');
  if( $highlight == 'yes' ){ $hClass = 'highlight'; } else { $hClass = ''; }
 
@@ -260,8 +244,8 @@ if( $i == 1 ) { ?>
 		<div class="mis">
 			<div class="title"><?php the_title(); ?></div>
 			<div class="time">
-			<?php
-				echo $startTime;
+			<?php 
+				echo $startTime; 
 				if( $EndTime != '') {
 					echo ' - '.$EndTime;
 					}?>
@@ -269,19 +253,19 @@ if( $i == 1 ) { ?>
 		</div>
 	<?php } else { ?>
 		<div class="title">
-			<?php
+			<?php 
 			// Temporary link for music
 			//if(get_post_type() == 'music') { ?>
 			 <?php //} else { ?>
-
+				
 			<?php //} ?>
 				<?php the_title(); ?>
 				<!-- <br>|| <?php echo $classes; ?> -->
-
+			
 		</div>
 		<div class="time">
-			<?php
-			echo $startTime;
+			<?php 
+			echo $startTime; 
 			if( $EndTime != '') {
 				echo ' - '.$EndTime;
 				}?>

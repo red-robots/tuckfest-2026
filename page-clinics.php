@@ -8,7 +8,7 @@
  */
 
 
-get_header(); 
+get_header();
 get_template_part('inc/coming-soon');
 $comingSoon = get_field('coming_soon');
 $soon = ( isset($comingSoon[0]) ) ? $comingSoon[0] : '';
@@ -26,7 +26,7 @@ if($soon !== 'soon') :?>
         <div class="wrapper"><?php the_content(); ?></div>
       </section>
       <?php //} ?>
-    <?php endwhile; ?>  
+    <?php endwhile; ?>
 
 
     <?php
@@ -38,11 +38,13 @@ if($soon !== 'soon') :?>
       'posts_per_page' => -1,
       'paged' => $paged,
       'facetwp' => true,
-      // 'post__not_in' => 
+      // 'post__not_in' =>
     ));
 
+		$demo_clinic_types = getPostTerms('demo_clinic','demo_clinic_type',null);
     //$terms['demo_clinic_type'] = getPostTerms($posttype,'demo_clinic_type',array('name','ASC'));
     $terms['event_day'] = getPostTerms($posttype,'event_day',null);
+	  //$terms['demo_clinic_type'] = getPostTerms($posttype,'demo_clinic_type',null);
 
     // echo "<pre>";
     // print_r($terms);
@@ -62,6 +64,7 @@ if($soon !== 'soon') :?>
               <?php foreach ($items as $item) { ?>
                 <li rel="<?php echo $item->slug ?>"><?php echo $item->name ?></li>
               <?php } ?>
+							 <li rel="youth">Youth</li>
             </ul>
           </div>
           <?php } ?>
@@ -70,8 +73,8 @@ if($soon !== 'soon') :?>
         <?php //echo do_shortcode('[facetwp facet="event_day"]'); ?>
       </div>
       <?php } ?>
-      
-      
+
+
       <div class="repeatable-content-blocks">
         <div id="original-post-listing" class="wrapper">
           <?php while ($wp_query->have_posts()) : $wp_query->the_post(); $i++; ?>

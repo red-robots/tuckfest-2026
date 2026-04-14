@@ -14,13 +14,27 @@ if( isset($terms) && $terms ) {
     $p_terms = get_the_terms($pId, $taxonomy);
     if($p_terms) {
       foreach($p_terms as $pt) {
-        $post_terms[] = $pt->slug;
+				if(isset($pt->slug)) {
+					$post_terms[] = $pt->slug;
+				}
       }
     }
   }
 }
 
+$clinicArrs = array();
+$clinic_terms = get_the_terms( $pId, 'demo_clinic_type' );
+if($clinic_terms) {
+	foreach($clinic_terms as $ct) {
+		$clinicArrs[] = $ct->slug;
+	}
+}
+
 $terms_class = ($post_terms) ? ' ' . implode(' ',$post_terms) : '';
+if($clinicArrs) {
+	$terms_class .= ' ' . implode(' ',$clinicArrs);
+}
+
 if( ($title || $text) ||  $image ) { ?>
 <div data-pid="<?php echo $pId ?>" class="content-block <?php echo $column_class.' '.$terms_class; ?>">
   <?php if ( $title || $text ) { ?>
@@ -31,12 +45,12 @@ if( ($title || $text) ||  $image ) { ?>
       <?php } ?>
 
       <?php if ($text) { ?>
-       <div class="rb_content"><?php echo anti_email_spam($text); ?></div> 
+       <div class="rb_content"><?php echo anti_email_spam($text); ?></div>
       <?php } ?>
 
       <?php if ($buttons) { ?>
        <div class="rb_buttons">
-         <?php foreach ($buttons as $btn) { 
+         <?php foreach ($buttons as $btn) {
           $b = $btn['button'];
           $btn_target = ( isset($b['target']) && $b['target'] ) ? $b['target'] : '_self';
           $btn_text = ( isset($b['title']) && $b['title'] ) ? $b['title'] : '';
@@ -45,10 +59,10 @@ if( ($title || $text) ||  $image ) { ?>
             <a href="<?php echo $btn_link ?>" targe="<?php echo $btn_target ?>" class="btn2 btn-green"><?php echo $btn_text ?></a>
           <?php } ?>
          <?php } ?>
-       </div> 
+       </div>
       <?php } ?>
     </div>
-  </div> 
+  </div>
   <?php } ?>
 
   <?php if ( $image ) { ?>
@@ -56,7 +70,7 @@ if( ($title || $text) ||  $image ) { ?>
     <div class="imagediv" >
       <img src="<?php echo $image ?>" >
     </div>
-  </div> 
+  </div>
   <?php } ?>
 </div>
 <?php } ?>

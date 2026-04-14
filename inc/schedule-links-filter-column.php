@@ -2,7 +2,7 @@
 <div class="wrapper">
 <div class="filters" id="filters">
 <div class="filter-title">Filter By</div>
-<?php 
+<?php
 $i=0;
 /*
 ################   Second we Query the Activity Type   ##############
@@ -20,12 +20,12 @@ $wp_query->query(array(
 	'post_status' => array( 'publish', 'private' ),
 	// No specific tax terms because we're pulling everything.
 ));
-if ($wp_query->have_posts()) :  while ($wp_query->have_posts()) :  $wp_query->the_post(); 
+if ($wp_query->have_posts()) :  while ($wp_query->have_posts()) :  $wp_query->the_post();
 		// Get the ID and terms of each post
 		$theID = get_the_ID();
 		$terms = get_the_terms($theID, 'competition_type');
 		// $termsDemo = get_the_terms($theID, 'demo_clinic_type');
-		
+
 		// Loop through competition type
 		if($terms){
 			foreach ($terms as $term) {
@@ -35,7 +35,7 @@ if ($wp_query->have_posts()) :  while ($wp_query->have_posts()) :  $wp_query->th
 				if( $altName == '' ) {
 					$altName = $day;
 				}
-				
+
 				// echo '<pre>';
 				// print_r($term);
 				// echo '</pre>';
@@ -47,7 +47,7 @@ if ($wp_query->have_posts()) :  while ($wp_query->have_posts()) :  $wp_query->th
 
 					// new method with Alt name for menu dropdown
 					$second[] = array( 'name' => $day, 'alt' => $altName );
-					
+
 				}
 			}
 		}
@@ -60,7 +60,7 @@ if ($wp_query->have_posts()) :  while ($wp_query->have_posts()) :  $wp_query->th
 				if( $altName == '' ) {
 					$altName = $day;
 				}
-				
+
 
         /* This returns PHP errors if the variable $first is null  => To fix the issue, add this condition if( isset($first) && $first ) */
         // if( !in_array($day, array_column($first, 'name') ) ) {
@@ -68,7 +68,7 @@ if ($wp_query->have_posts()) :  while ($wp_query->have_posts()) :  $wp_query->th
         // }
 
         //if we haven't added the day into the array, add it. Let's not repeat ourselves.
-        if( isset($first) && $first ) { 
+        if( isset($first) && $first ) {
           if( !in_array($day, array_column($first, 'name') ) ) {
             $first[] = array( 'name' => $day, 'alt' => $altName );
           }
@@ -77,14 +77,14 @@ if ($wp_query->have_posts()) :  while ($wp_query->have_posts()) :  $wp_query->th
 			}
 		}
 
-	endwhile; 
-endif; 
+	endwhile;
+endif;
 
 // $combo[] = array_merge($second, $altN);
 
 // let's get music and yoga in here manually just because
 $second[] = array( 'name' => 'Music', 'alt' => 'Music' );
-$second[] = array( 'name' => 'Demos', 'alt' => 'Demos' );
+//$second[] = array( 'name' => 'Demos', 'alt' => 'Demos' );
 $second[] = array( 'name' => 'Yoga', 'alt' => 'Yoga' );
 $second[] = array( 'name' => 'Clinics', 'alt' => 'Clinics' );
 // $second[] = array( 'name' => 'Films', 'alt' => 'Films' );
@@ -111,7 +111,7 @@ array_sort_by_column($second, 'name');
 	      <div id="f_type" data-slug="sched-act" class="select-styled">Type</div>
 	      <ul class="select-options">
 	        <li rel=".sched-act">All Types</li>
-	        <?php foreach ($second as $button) { 
+	        <?php foreach ($second as $button) {
 	          $filterString = sanitize_title_with_dashes($button['name']);
 	          $bName = $button['alt'];
 	          ?>
@@ -123,7 +123,7 @@ array_sort_by_column($second, 'name');
 	      <div class="select-styled">All</div>
 	      <ul class="select-options">
 	        <li rel=".sched-act">All</li>
-	        <?php //foreach ($first as $button) { 
+	        <?php //foreach ($first as $button) {
 	          //$filterString = sanitize_title_with_dashes($button['name']);
 	          //$bName = $button['alt'];
 	          ?>
@@ -140,7 +140,7 @@ array_sort_by_column($second, 'name');
         <div id="f_day" data-slug="all-items" class="select-styled">Day</div>
         <ul class="select-options">
           <li class="filter-day" rel=".all-items">All Days</li>
-          <?php foreach ($daysList as $day) { 
+          <?php foreach ($daysList as $day) {
             $day_slug = sanitize_title_with_dashes($day);
             ?>
             <li class="filter-day" rel=".<?php echo $day_slug ?>"><?php echo $day ?></li>

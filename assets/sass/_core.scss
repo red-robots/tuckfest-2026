@@ -1260,6 +1260,42 @@ body {
     // color: $orange;
     // border: 1px solid $orange;
   }
+
+  &.pagination-feeds {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+    gap: 1rem;
+    span.page-numbers, a {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      float: none;
+      margin: 0 0 !important;
+      width: 35px;
+      height: 35px;
+      padding: 0 0!important;
+    }
+    span.page-numbers {
+      border: 1px solid #FFF;
+    }
+    a {
+      border: 1px solid $yellow;
+      color: $yellow;
+      transition: all ease .3s;
+      span {
+        color: $yellow;
+      }
+      &:hover {
+        background: $yellow;
+        color: #000;
+        span {
+          color: #000;
+        }
+      }
+    }
+  }
 }
 body.page-template-page-athletes {
   .content-block {

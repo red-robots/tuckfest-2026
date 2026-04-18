@@ -1631,6 +1631,13 @@ a:hover{color:#ff3}
 #pagination{width:100%;float:left;text-align:center;margin-top:15px;margin-bottom:40px;position:relative;left:-4px}
 #pagination span,#pagination a{display:inline-block;text-decoration:none;float:left;font-size:15px;line-height:1;padding:4px 7px;margin:5px 4px}
 #pagination span{color:#fff}
+#pagination.pagination-feeds{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;left:0;gap:1rem}
+#pagination.pagination-feeds span.page-numbers,#pagination.pagination-feeds a{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;float:none;margin:0 0 !important;width:35px;height:35px;padding:0 0 !important}
+#pagination.pagination-feeds span.page-numbers{border:1px solid #fff}
+#pagination.pagination-feeds a{border:1px solid #ff0;color:#ff0;-webkit-transition:all ease .3s;transition:all ease .3s}
+#pagination.pagination-feeds a span{color:#ff0}
+#pagination.pagination-feeds a:hover{background:#ff0;color:#000}
+#pagination.pagination-feeds a:hover span{color:#000}
 body.page-template-page-athletes .content-block{-webkit-box-align:center;-ms-flex-align:center;align-items:center}
 body.page-template-page-athletes .entry-title h1{margin:10px 0}
 body.page-template-page-athletes ul.terms a{display:inline-block;position:relative}

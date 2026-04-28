@@ -1,58 +1,54 @@
 <?php if( get_row_layout() == 'fullscreen_hero_image' ) {
-$visibility = get_sub_field('section_visibility');
-$is_visible = ($visibility=='off') ? false : true;
-if($is_visible) {  
-  $bgImage = get_sub_field('background_image');
-  $bgImageMobile = get_sub_field('background_image_mobile');
-  $middleImage = get_sub_field('middle_image');
-  $heroText = get_sub_field('hero_text');
-  $text_effect = get_sub_field('hero_text_effect');
-  $text_effect_class = ($text_effect) ? ' has-text-effect':'';
-  $bottomInfo = get_sub_field('bottom_information');
-  $leftText = ( isset($bottomInfo['left_text']) ) ? $bottomInfo['left_text'] : '';
-  $centerText = ( isset($bottomInfo['center_text']) ) ? $bottomInfo['center_text'] : '';
-  $rightText = ( isset($bottomInfo['right_text']) ) ? $bottomInfo['right_text'] : '';
-  $repeatableClass = 'repeatable--'.get_row_layout().' repeatable--'.get_row_layout().$ctr;
-  if($bgImage) { ?>
-  <section data-group="<?php echo get_row_layout() ?>" class="repeatable <?php echo $repeatableClass ?>">
-    <div class="background-image img-desktop" style="background-image:url('<?php echo $bgImage['url']?>')"></div>
-    <?php if ($bgImageMobile) { ?>
-    <div class="background-image img-mobile" style="background-image:url('<?php echo $bgImageMobile['url']?>')"></div>
-    <?php } ?>
-    
-    <?php if ($middleImage || $heroText) { ?>
-    <div class="middleImage">
-      <div class="wrap">
-        <?php if ($middleImage) { ?>
-          <figure><img src="<?php echo $middleImage['url'] ?>" alt="<?php echo $middleImage['title'] ?>"></figure>
-        <?php } ?>
-        <?php if ($heroText) { ?>
-        <div class="heroText"><span class="str<?php echo $text_effect_class ?>"><?php echo $heroText ?></span></div>
-        <?php } ?>
-      </div>
-    </div> 
-    <?php } ?>
-
-    <?php if ($leftText || $centerText || $rightText) { ?>
-    <div class="bottomContent">
-      <div class="wrap">
-        <?php if ($leftText) { ?>
-        <div class="text leftText"><?php echo $leftText ?></div>
-        <?php } ?>
-        <?php if ($centerText) { ?>
-        <div class="text centerText"><?php echo $centerText ?></div>
-        <?php } ?>
-        <?php if ($rightText) { ?>
-        <div class="text rightText"><?php echo $rightText ?></div>
-        <?php } ?>
-      </div>
-      <span class="stripes">
-        <span class="s1"></span>
-        <span class="s2"></span>
-      </span>
-    </div>
-    <?php } ?>
-  </section>
+$bgImage = get_sub_field('background_image');
+$bgImageMobile = get_sub_field('background_image_mobile');
+$middleImage = get_sub_field('middle_image');
+$heroText = get_sub_field('hero_text');
+$text_effect = get_sub_field('hero_text_effect');
+$text_effect_class = ($text_effect) ? ' has-text-effect':'';
+$bottomInfo = get_sub_field('bottom_information');
+$leftText = ( isset($bottomInfo['left_text']) ) ? $bottomInfo['left_text'] : '';
+$centerText = ( isset($bottomInfo['center_text']) ) ? $bottomInfo['center_text'] : '';
+$rightText = ( isset($bottomInfo['right_text']) ) ? $bottomInfo['right_text'] : '';
+$repeatableClass = 'repeatable--'.get_row_layout().' repeatable--'.get_row_layout().$ctr;
+if($bgImage) { ?>
+<section data-group="<?php echo get_row_layout() ?>" class="repeatable <?php echo $repeatableClass ?>">
+  <div class="background-image img-desktop" style="background-image:url('<?php echo $bgImage['url']?>')"></div>
+  <?php if ($bgImageMobile) { ?>
+  <div class="background-image img-mobile" style="background-image:url('<?php echo $bgImageMobile['url']?>')"></div>
   <?php } ?>
+  
+  <?php if ($middleImage || $heroText) { ?>
+  <div class="middleImage">
+    <div class="wrap">
+      <?php if ($middleImage) { ?>
+        <figure><img src="<?php echo $middleImage['url'] ?>" alt="<?php echo $middleImage['title'] ?>"></figure>
+      <?php } ?>
+      <?php if ($heroText) { ?>
+      <div class="heroText"><span class="str<?php echo $text_effect_class ?>"><?php echo $heroText ?></span></div>
+      <?php } ?>
+    </div>
+  </div> 
+  <?php } ?>
+
+  <?php if ($leftText || $centerText || $rightText) { ?>
+  <div class="bottomContent">
+    <div class="wrap">
+      <?php if ($leftText) { ?>
+      <div class="text leftText"><?php echo $leftText ?></div>
+      <?php } ?>
+      <?php if ($centerText) { ?>
+      <div class="text centerText"><?php echo $centerText ?></div>
+      <?php } ?>
+      <?php if ($rightText) { ?>
+      <div class="text rightText"><?php echo $rightText ?></div>
+      <?php } ?>
+    </div>
+    <span class="stripes">
+      <span class="s1"></span>
+      <span class="s2"></span>
+    </span>
+  </div>
+  <?php } ?>
+</section>
 <?php } ?>
 <?php } ?>

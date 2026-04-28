@@ -58,13 +58,18 @@
 			//NEW
 
 $queried_object = get_queried_object();
+$queried_object_slug = ( isset($queried_object->slug) && $queried_object->slug ) ? $queried_object->slug : '';
 $i++;
 if( $i == 1 ) {
 
 	// echo '<h2>'.$queried_object->name.'</h2>';
 }
 
-$wwAct = 'https://center.whitewater.org/visit/activity-passes/';
+//$wwAct = 'https://center.whitewater.org/visit/activity-passes/';
+$wwc_schedule_title = ($queried_object_slug) ? get_field($queried_object_slug.'_schedule_wwc', 'option') : '';
+$wwc_schedule_time = ($queried_object_slug) ? get_field($queried_object_slug.'_schedule_wwc_time', 'option') : '';
+$wwc_schedule_url = ($queried_object_slug) ? get_field($queried_object_slug.'_schedule_wwc_url', 'option') : '';
+
 
 $thurTime = get_field('thursday_time_p');
 $thurEndTime = get_field('thursday_time_p_end');
@@ -75,7 +80,7 @@ $satEndTime = get_field('saturday_time_p_end');
 $sunTime = get_field('sunday_time_p');
 $sunEndTime = get_field('sunday_time_p_end');
 
-if( $queried_object->slug == 'thursday' ) {
+if( $queried_object_slug == 'thursday' ) {
 	$pp = get_field('thursday_schedule', 'option');
 	$startTime = $thurTime;
 	$EndTime = $thurEndTime;
@@ -85,7 +90,7 @@ if( $queried_object->slug == 'thursday' ) {
 	$regStartTwo = get_field('thursday_start_2', 'option');
 	$regEndTwo = get_field('thursday_end_2', 'option');
 	$actTime = '10:00 am - 6:00 pm';
-} elseif( $queried_object->slug == 'friday' ) {
+} elseif( $queried_object_slug == 'friday' ) {
 	$pp = get_field('friday_schedule', 'option');
 	$vv = get_field('friday_schedule_vv', 'option');
 	$pp_time = get_field('friday_schedule_time', 'option');
@@ -101,7 +106,7 @@ if( $queried_object->slug == 'thursday' ) {
 
 	$az = get_field('friday_schedule_az', 'option');
 	$az_time = get_field('friday_schedule_az_time', 'option');
-} elseif( $queried_object->slug == 'saturday' ) {
+} elseif( $queried_object_slug == 'saturday' ) {
 	$pp = get_field('saturday_schedule', 'option');
 	$vv = get_field('saturday_schedule_vv', 'option');
 	$pp_time = get_field('saturday_schedule_time', 'option');
@@ -197,7 +202,7 @@ if( $i == 1 ) { ?>
 		<?php if($regLink) { ?>
 		<a href="<?php echo $regLink; ?>">
 		<?php } else { ?>
-		<a href="javascript:void(0)" role="presentation">
+		<a role="presentation">
 		<?php } ?>
 				<div class="title first axis"><?php echo $pp; ?></div>
 				<div class="time"><?php echo $pp_time; ?></div>
@@ -217,7 +222,7 @@ if( $i == 1 ) { ?>
 
 	<?php if( $az && $az_time ){ ?>
 	<li class="item <?php echo $daySlug ?> sched-act">
-		<a href="javascript:void(0)" role="presentation">
+		<a role="presentation">
 			<div class="title first axis"><?php echo $az; ?></div>
 			<div class="time"><?php echo $az_time; ?></div>
 		</a>
@@ -226,23 +231,25 @@ if( $i == 1 ) { ?>
 
 	<?php if( $vv && $vv_time ){ ?>
 	<li class="item <?php echo $daySlug ?> sched-act">
-		<a href="javascript:void(0)" role="presentation">
+		<a role="presentation">
 			<div class="title first axis"><?php echo $vv; ?></div>
 			<div class="time"><?php echo $vv_time; ?></div>
 		</a>
 	</li>
 	<?php } ?>
 
-	<?php if( $actTime ){ ?>
-	<li class="item <?php echo $daySlug ?> sched-act">
-		<a href="<?php echo $wwAct; ?>" target="_blank">
-			<div class="title first axis">
-				Whitewater Center Activities
-			</div>
-			<div class="time"><?php echo $actTime; ?></div>
-		</a>
-	</li>
-	<?php } ?>
+  <?php if ($wwc_schedule_title && $wwc_schedule_time) { ?>
+  <li class="item <?php echo $daySlug ?> sched-act">
+    <?php if ($wwc_schedule_url) { ?>
+      <a href="<?php echo $wwc_schedule_url; ?>" target="_blank">
+    <?php } else { ?>
+      <a role="presentation">
+    <?php } ?>
+      <div class="title first axis"><?php echo $wwc_schedule_title ?></div>
+      <div class="time"><?php echo $wwc_schedule_time; ?></div>
+    </a>
+  </li>
+  <?php } ?>
 
 <?php } ?>
 

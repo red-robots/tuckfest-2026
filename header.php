@@ -68,6 +68,13 @@ $extraClass .= ( $banner_image || $header_image ) ? ' has-banner':' no-banner';
 $brand_name = (get_field('brand_name','option')) ? get_field('brand_name','option') : get_bloginfo('name');
 $brand_image = get_field('brand_image','option');
 $brandStyle = ($brand_image) ? ' style="background-image:url('.$brand_image['url'].')"':'';
+$hamburger_menu = get_field('hamburger_menu_visibility','option');
+$show_hamburger_menu = ($hamburger_menu=='on') ? true : false;
+if($show_hamburger_menu) {
+  $extraClass .= ' hamburger-menu-ON';
+} else {
+  $extraClass .= ' hamburger-menu-OFF';
+}
 ?>
 <body <?php body_class($extraClass);?>>
 <div id="page" class="site cf">
@@ -81,12 +88,17 @@ $brandStyle = ($brand_image) ? ' style="background-image:url('.$brand_image['url
           <img src="<?php bloginfo('template_url'); ?>/images/logo.png" alt="TuckFest">
         </a> 
       </div>
-
+      
+      <?php if($show_hamburger_menu) { ?>
       <button class="menu-toggle-button" aria-expanded="false">
         <span class="bar"></span>
         <span class="sr-only">Menu</span>
       </button>
+    <?php } ?>
+    
     </div>
+  
+  <?php if($show_hamburger_menu) { ?>
     <div id="site-navigation">
       <div class="navigation-wrapper">
         <nav id="main-navigation" class="main-navigation" role="navigation">
@@ -126,6 +138,8 @@ $brandStyle = ($brand_image) ? ' style="background-image:url('.$brand_image['url
       </div>
       <button class="menu-close"><span class="sr-only">Menu Close</span></button>
     </div>
+  <?php } ?>
+    
   </header>
   
   <div id="content" class="site-content">
